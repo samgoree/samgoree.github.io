@@ -1,0 +1,27 @@
+
+title: A Title?
+url: 'http://samgoree.github.io'
+baseurl: '/' #change it according to your repository name
+
+
+# Enable one of these styles by removing #
+style: styles-2
+#style: styles-3
+#style: styles-4
+#style: styles-5
+#style: styles-6
+
+
+
+
+#Profile information
+name: Sam Goree
+tagline: A Person?
+pic: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
+
+#sidebar links
+email: no@nope.not
+phone: 012 345 6789
+website: samgoree.github.io #do not add http://
+github: samgoree
+
