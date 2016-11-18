@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+            
+{% include carrier-profile.html %}
+
+
+
+{% for post in site.posts %}
+<section class="section summary-section">
+<div class="summary">
+<p><a href="{{ post.url }}"><h2 class="section-title"></i>{{post.title}}</h2></a></p>
+
+<p>{{post.excerpt}}</p>
+
+</div>
+</section>
+{% endfor %}
+            
