@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Product of Experts
+title: Project Summary
 excerpt: My goal with this project is to investigate methods for procedurally generating counterpoint/voice leading by learning trends in existing music, rather than starting from pre-existing rules of counterpoint/voice leading. My reasons for this are two-fold. First, while undergrad composition and music theory classes in the conservatory model have strict composition rules as their bread and butter, mature composers of the past and present by and large compose music by recreating music they enjoy or find interesting, often by breaking the established rules of their chosen form. Second, there are many examples in the music composition literature of prescriptive, rule-based models for stochastic composition (see Hiller, Tenney, Xenakis, Eno, etc.). As far as I know, there are only a few people who have tried to do composition using machine learning techinques.
 ---
 
-First Insights: Product of Experts
+Why am I Doing this?
 ===================================================
 
 ##### 11/17/16
