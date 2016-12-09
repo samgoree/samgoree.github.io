@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Naive Generative Model
-excerpt:
+excerpt: Rather than dive immediately into complex neural network architectures, I wanted to create a first model that predicts the absolute pitches of one voice given the absolute pitches in other voices. My goal was not to create the best possible predictive model of music so much as it was to create a control against future experiments that pre-process the training data further. If the dataset I had found could be modeled with high accuracy without significant pre-processing, then any more sophisticated model would be unnecessary and I would know to find a less homogeneous dataset before proceeding.
+
 ---
 
 A Naive Generative Model
