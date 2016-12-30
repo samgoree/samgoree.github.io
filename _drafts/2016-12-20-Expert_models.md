@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Expert Models
-excerpt: The next step towards machine composition of four-part harmony, after working with a naive generative model, was to try to implement other models that better preprocessed training data. My ultimate goal with these is to apply Geoffry Hinton's [Product of Experts](http://www.cs.toronto.edu/~hinton/absps/tr00-004.pdf) and multiply together the output probability distributions of several models trained on different aspects of the training data to get a more nuanced result.
+excerpt: The next step towards machine composition of four-part harmony, after working with a naive generative model, was to try to implement other models that better preprocessed training data. My ultimate goal with these is to apply Geoffry Hinton's Product of Experts and multiply together the output probability distributions of several models trained on different aspects of the training data to get a more nuanced result.
 ---
 
 Expert Models
