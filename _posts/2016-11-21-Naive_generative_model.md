@@ -43,9 +43,9 @@ Here are some pretty pictures of the training process:
 
 <img src="{{site.baseurl}}/assets/images/simpleGenerative/batch0" alt="Batch 0" width="400" height="300"/>
 
-<img src="{{site.baseurl}}/assets/images/simpleGenerative/batch20" alt="Batch 20" width="400" height="300"/>
+<img src="{{site.baseurl}}/assets/images/simpleGenerative/batch160" alt="Batch 160" width="400" height="300"/>
 
-<img src="{{site.baseurl}}/assets/images/simpleGenerative/batch40" alt="Batch 40" width="400" height="300"/>
+<img src="{{site.baseurl}}/assets/images/simpleGenerative/batch300" alt="Batch 300" width="400" height="300"/>
 
 Here, the Y-axis is pitch, the X-axis is time and the heatmap color at timestep n and pitch m is the probability that the network will output that pitch given the previous n-1 timesteps of the actual piece. These are pulled from validation runs, so there aren't corresponding examples of generated music.
 
