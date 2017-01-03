@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Taking the Product
-excerpt: 
+excerpt: After finishing the individual expert models, I moved on to building a product model. The concept comes from Geoffrey Hinton and this particular application was my colleague from summer research, Daniel Johnson's idea. Basically, instead of training naively on untransposed pitches, preprocess that pitch data in a variety of different ways, then train several "expert" models on the preprocessed data, then take the output probability density functions outputted by each expert, multiply them together and renormalize.
 ---
 
 Taking the Product
