@@ -1,7 +1,7 @@
 ---
 layout: default
 title: The Incredibles (continued)
-excerpt: A week ago, I spewed some of my thoughts about *The Incredibles* in a post. Now I've graduated college and am back home with more free time. Hopefully, in this post, I can go through the rest of my ideas about the first part of Giacchino's fantastic score.
+excerpt: A week ago, I spewed some of my thoughts about The Incredibles in a post. Now I've graduated college and am back home with more free time. Hopefully, in this post, I can go through the rest of my ideas about the first part of Giacchino's fantastic score.
 
 ---
 
