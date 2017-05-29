@@ -18,7 +18,13 @@ Spoilers follow, so if you haven't seen the movie, you've been warned.
 
 *The Incredibles* is a movie about Bob Parr, who is the superhero Mr. Incredible, his family, who also have superpowers, and their experiences saving a world that doesn't really want to be saved. The film opens in a documentary style, with shots that look they're taken from interviews with the main characters, then goes into the first scene. This scene, which we'll spend most of this post discussing, shows us Mr. Incredible and Elastigirl, his future wife, on the day of their wedding fighting crime and doing good. 
 
-Towards the end of this scene, though, Bob saves a man attempting suicide. The film tells us that Mr. Incredible "didn't save my life, he ruined my death!" which launches us back into a documentary style discussing the series of lawsuits surrounding superhero activity that forces heroes to stop being heroic. The government quietly relocates the former superheroes and settles them into normal human life.
+<br>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6lW4hTepKqQ" frameborder="0" allowfullscreen></iframe>
+
+<br>
+
+Towards the end of this scene (after the end of the video above), though, Bob saves a man attempting suicide. The film tells us that Mr. Incredible "didn't save my life, he ruined my death!" which launches us back into a documentary style discussing the series of lawsuits surrounding superhero activity that forces heroes to stop being heroic. The government quietly relocates the former superheroes and settles them into normal human life.
 
 <img src="{{site.baseurl}}/assets/images/incredibles/watchmen.jpg" alt="Watchmen" style="width: 90%; height: 90%"/>
 
