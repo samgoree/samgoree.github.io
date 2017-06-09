@@ -1,7 +1,7 @@
 ---
 layout: default
 title: The Incredibles
-excerpt: It's May now, and I'm done with classes! Commencement at Oberlin is next Monday, so I have some free time, and I decided to write a post. Rather than spend more time on my honors research, I figured I'd go into something else I've been thinking about and researching lately, which is Michael Giacchino's score to the Disney Pixar film *The Incredibles*. I wrote a paper for a music theory class on this topic, but I had a lot of thoughts about the music that didn't fit nicely into a paper, so I'm going to try to fit more content into a less structured blog post.
+excerpt: It's May now, and I'm done with classes! Commencement at Oberlin is next Monday, so I have some free time, and I decided to write a post. Rather than spend more time on my honors research, I figured I'd go into something else I've been thinking about and researching lately, which is Michael Giacchino's score to the Disney Pixar film The Incredibles. I wrote a paper for a music theory class on this topic, but I had a lot of thoughts about the music that didn't fit nicely into a paper, so I'm going to try to fit more content into a less structured blog post.
 
 ---
 

@@ -7,7 +7,7 @@ layout: default
 
 
 
-{% for post in site.posts %}
+{% for post in site.posts limit:3 %}
 <section class="section summary-section">
 <div class="summary">
 <p><a href="{{ post.url }}"><h2 class="section-title"></i>{{post.title}}</h2></a></p>
