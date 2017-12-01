@@ -31,12 +31,14 @@ The method that Fogleman uses is hill climbing, which is an algorithm that start
 
 I wanted to try to apply this algorithm to sounds and see what it did. I think there are pretty good sonic analogues to all of the concepts in the algorithm:
 
-* Image file maps to audio file
-* The color of a pixel maps to the amplitude of a single sample
-* Shapes maps to sound waves
-* The position, size, color and rotation parameters map to start time, end time, frequency (pitch) and amplitude (volume)
+* Image files become audio files
+* The color of a pixel becomes the amplitude of a single [sample](https://en.wikipedia.org/wiki/Audio_bit_depth)
+* Shapes become sound waves
+* The position, size, color and rotation parameters become start time, end time, frequency (pitch) and amplitude (volume)
 
-As a result, we end up with a pretty clear procedure for making sounds out of "sonic primitives". I programmed the algorithm pretty quickly in python, using [numpy](http://www.numpy.org/) to speed up the synthesis process. At this point, I only worked with sine waves, but it wouldn't be too difficult to implement square, triangle or sawtooth waves as well. [Here's my implementation](https://github.com/samgoree/sonic_primitives).
+As a result, we end up with a pretty clear procedure for making sounds out of "sonic primitives". The coolest part, at least for me, is that the algorithm is still guaranteed to converge to an identical sound after an infinite number of iterations by [Fourier's inversion theorem](https://en.wikipedia.org/wiki/Fourier_inversion_theorem).
+
+I programmed the algorithm pretty quickly in python, using [numpy](http://www.numpy.org/) to speed up the synthesis process. At this point, I only worked with sine waves, but it wouldn't be too difficult to implement square, triangle or sawtooth waves as well. [Here's my implementation](https://github.com/samgoree/sonic_primitives).
 
 As expected, the hill climbing algorithm was a little finicky. Initial attempts ended up with either sound waves that were too small to change anything or too large and actually increased the difference between the synthetic sound and the real one. The trick that got it to work was 500 iterations of stochastic hill climbing followed by 500 iterations of non-stochastic hill climbing for each new wave. The stochastic phase would avoid local maxima and the non-stochastic phase would find the closest maximum. In effect, if the stochastic part of the climb found a poor wave, the non-stochastic part would reduce its amplitude (volume) to zero, and if the stochastic part found a good wave, the non-stochastic part would fine-tune it.
 
