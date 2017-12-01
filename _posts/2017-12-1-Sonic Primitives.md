@@ -13,7 +13,7 @@ First, it exists at the boundary of discrete and continuous forms, kind of like 
 
 More importantly, though, at least for me, these images are cool because they approximate continuous shapes with discrete shapes without relying on a human's impression of how the shapes should be used. They capture a more random, almost alien idea of how shapes fit together to approximate the world.
 
-<img src=""{{site.baseurl}}/assets/images/bird.jpg" alt="Drawing" style="width: 400px;"/>
+<img src="{{site.baseurl}}/assets/images/bird.jpg" alt="Drawing" style="width: 400px;"/>
 
 Since I'm a musician, I immediately wondered what this technique would look like for sounds instead of images. Before discussing how I did that, it's important to pin down exactly how Fogleman's program works.
 
@@ -23,7 +23,7 @@ The algorithm that Fogleman uses is also of interest to me. His program creates 
 
 Despite the discontinuity of the search space, there are still ways that we can find good parameters without exploring all of the different potential combinations. The key observation is that, while the search space is discontinuous, it's only locally discontinuous, and has contour in the same way as a step function. For search problems, it's often helpful to use a physical metaphor. From now on, a "position in the search space" corresponds to a set of values for the parameters and the "height" of a given position is how similar it makes the synthetic image to the original, where higher is closer.
 
-<img src=""{{site.baseurl}}/assets/images/step-function.png" alt="Step Functions are cool!" style="width: 400px;"/>
+<img src="{{site.baseurl}}/assets/images/step-function.png" alt="Step Functions are cool!" style="width: 400px;"/>
 
 The method that Fogleman uses is hill climbing, which is an algorithm that starts at a random position in the search space, looks at the height of positions surrounding it and changes its parameters to the highest, "climbing" the hill. This algorithm is guaranteed to find a maximum, which is a peak without higher points around it, but can get caught in local maxima and isn't guaranteed to find the global maximum, or highest point in general. To avoid getting stuck in one of these local maxima, we make it stochastic and choose which direction to go with a probability proportional to its height, which adds a random chance that the algorithm will instead go downhill, in the hopes that it will eventually either return to where it was or find a higher peak.
 
