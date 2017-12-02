@@ -1,3 +1,9 @@
+---
+layout: default
+title: Sonic Primitives
+excerpt: Last week, I discovered a wonderful twitter account that posts art generated from images using Primitive.lol by Michael Fogleman. Since following it, I have been bombarded with beautiful images of shapes arranged to resemble real things.
+---
+
 # Sonic Primitives
 
 Hi! Sorry I don't post much. I now have a real job and spend most of my time on that. Also I finished my honors research, so I didn't have too much to write about until recently.
