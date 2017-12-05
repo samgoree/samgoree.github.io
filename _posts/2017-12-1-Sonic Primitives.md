@@ -17,7 +17,7 @@ I really like this art style for two reasons.
 
 First, it exists at the boundary of discrete and continuous forms, kind of like pointillism. The shapes that make up the art are simple, atomic and not particularly representational, but as the number of shapes increases, the number of overlapping shapes and colors skyrockets and begins to approximate a continuous form like a bird. It kind of reminds me of calculus, where Reimann sums use infinitely many rectangles to approximate all sorts of other curved shapes.
 
-More importantly, though, at least for me, these images are cool because they approximate continuous shapes with discrete shapes without relying on a human's impression of how the shapes should be used. They capture a more random, almost alien idea of how shapes fit together to approximate the world.
+More importantly, though, at least for me, these images are cool because they approximate continuous shapes with discrete shapes without relying on a human's impression of how the shapes should be used. They capture a more random, almost alien idea of how shapes fit together to approximate the world. If you ask a human to do that, they won't end up with the bird image in the tweet above, they'll end up something more like this:
 
 <img src="{{site.baseurl}}/assets/images/bird.jpg" alt="Drawing" style="width: 400px;"/>
 
@@ -25,7 +25,13 @@ Since I'm a musician, I immediately wondered what this technique would look like
 
 ### The Original Algorithm
 
-The algorithm that Fogleman uses is also of interest to me. His program creates a new shape, places it on the synthetic image, then adjusts that shape until its position, size and color increase the similarity of the sythetic image to the original image as much as possible, then repeats as many times as the user wants. The big problem is where to put the shape. Fundamentally, this is a search problem with several dimensions: X position, Y position, rotation, width, height, and red, green and blue color, where the goal is to find the values of the parameters that maximize the "closeness" to the original image. It's a difficult search problem because image similarity is measured at the pixel level, and since pixels are discrete, the function mapping shape parameters to distance from the original image is discontinuous as well.
+Fogleman's algorithm works as follows: 
+
+1. Create a synthetic image with the same dimensions as the original, that starts blank.
+2. Create a new shape, place it on the synthetic image, then adjust that shape until its position, size and color increase the similarity of the sythetic image to the original image as much as possible.
+3. Repeat step 2 as many times as the user wants. 
+
+The challenge is where to put the shape. Fundamentally, this is a search problem with several dimensions: X position, Y position, rotation, width, height, and red, green and blue color, where the goal is to find the values of the parameters that maximize the "closeness" to the original image. It's a difficult search problem because image similarity is measured at the pixel level, and since pixels are discrete, the function mapping shape parameters to distance from the original image is discontinuous as well.
 
 Despite the discontinuity of the search space, there are still ways that we can find good parameters without exploring all of the different potential combinations. The key observation is that, while the search space is discontinuous, it's only locally discontinuous, and has contour in the same way as a step function. For search problems, it's often helpful to use a physical metaphor. From now on, a "position in the search space" corresponds to a set of values for the parameters and the "height" of a given position is how similar it makes the synthetic image to the original, where higher is closer.
 
@@ -61,5 +67,7 @@ While as a programmer and an engineer I am most proud of the last "Hello" track,
 These ideas about music and sound are nothing new. The idea of creating sounds by adding sine waves together, called additive synthesis, is one of the fundamental ideas behind electronic music. Spectralist composers of the late 20th century like Tristan Murail and Gerard Grisey summed together sounds to approximate recordings, however they used Fourier analysis to split up the sounds into their component sine waves, then orchestrated the sine waves to create an acoustic depiction of the recorded sound.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/X6S7W8BkKmw?rel=0" frameborder="0" allowfullscreen></iframe>
+
+From another area of 20th century music, the idea of constructing sounds out of random clouds of smaller components is a big theme in the music of Georgiy Ligeti and Iannis Xenakis. Xenakis, in particular, would probably have been fond of this way of constructing what he called "second order sonorities" or sounds built out of other sounds. At some point, I'll post the thesis I wrote for my music major, which was on his music.
 
 Anyway, feel free to clone my github repo and try for yourself! Be warned that each of the hundreds of sine waves may take upwards of a minute to be optimized. There may be use for a GPU to speed up the computation, but I am fine waiting, for the moment. If you are interested in my work but aren't a programmer, send me an email at the address in the sidebar! If there's interest, I will look into making an application like Primitive for non-programmers to use.
