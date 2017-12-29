@@ -26,13 +26,13 @@ NLP uses a tool called the "Bag of Words" model to convert text into numbers. Th
 
 The neat thing you can do with those bags of words is measure their similarity using trigonometry. The cosine of two vectors is close to 1 if those vectors are almost the same and close to 0 if they are totally different.
 
-<img src="{{site.baseurl}}/assets/images/ssm/cosine.png" alt="Cosine distance"/>
+<img src="{{site.baseurl}}/assets/images/ssm/cosine.png" alt="Cosine distance" style="width: 75%; height: 75%"/>
 
 ([Source](http://blog.christianperone.com/2013/09/machine-learning-cosine-similarity-for-vector-space-models-part-iii/), which is also a good, more technical approach to some of these concepts)
 
 That's exactly what we were looking for, a way to compare collections of notes! If we substitute words for notes and documents for measures of music, we get a fairly easy way to compare two passages of music!
 
-<img src="{{site.baseurl}}/assets/images/ssm/bagofwords.png" alt="Bag of Words"/>
+<img src="{{site.baseurl}}/assets/images/ssm/bagofwords.png" alt="Bag of Words" style="width: 75%; height: 75%"/>
 
 Comparing passages of music based on cosine distance is comparing passages of music based on how often they use each pitch, which carries a lot of assumptions. There are variants on this metric that can take things like key into account (where you use scale degrees instead of pitches), or ignore octave differences (where you use pitch classes instead of pitches), but neither of those addresses the elephant in the room: we are deliberately ignoring most of the actual content of music, which depends on the order of notes. Actual similarity of musical material is much more subjective and nuanced, so take the analysis below with a grain of salt.
 
