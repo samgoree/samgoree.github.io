@@ -26,7 +26,7 @@ NLP uses a tool called the "Bag of Words" model to convert text into numbers. Th
 
 The neat thing you can do with those bags of words is measure their similarity using trigonometry. The cosine of two vectors is close to 1 if those vectors are almost the same and close to 0 if they are totally different.
 
-<img src="{{site.baseurl}}/assets/images/ssm/cosine.png" alt="Cosine distance" style="width: 75%; height: 75%"/>
+<img src="{{site.baseurl}}/assets/images/ssm/cosine.png" alt="Cosine distance" style="width: 50%; height: 50%"/>
 
 ([Source](http://blog.christianperone.com/2013/09/machine-learning-cosine-similarity-for-vector-space-models-part-iii/), which is also a good, more technical approach to some of these concepts)
 
