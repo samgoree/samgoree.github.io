@@ -25,3 +25,5 @@ website: samgoree.github.io #do not add http://
 linkedin: samuel-goree-38214471
 github: samgoree
 
+# avoid letting jekyll see node_modules
+exclude: ['node_modules']
