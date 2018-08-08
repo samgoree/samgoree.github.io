@@ -107,7 +107,7 @@ export class TonnetzGrid extends Component {
     rows.push(this.renderPitchMonitor(11));
     rows.push(this.renderPitchMonitor(6));
 
-	rows.push(this.renderPitchMonitor(9));
+	  rows.push(this.renderPitchMonitor(9));
     rows.push(this.renderPitchMonitor(4));
     rows.push(this.renderPitchMonitor(11));
     rows.push(this.renderPitchMonitor(6));
@@ -119,10 +119,9 @@ export class TonnetzGrid extends Component {
     rows.push(this.renderPitchMonitor(1));
     rows.push(this.renderPitchMonitor(8));
     rows.push(this.renderPitchMonitor(3));
-	rows.push(this.renderPitchMonitor(10));
+	  rows.push(this.renderPitchMonitor(10));
     rows.push(this.renderPitchMonitor(5));
     rows.push(this.renderPitchMonitor(0));
-    rows.push(this.renderPitchMonitor(7));
 
     
     return (
