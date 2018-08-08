@@ -1,7 +1,7 @@
 ---
 layout: default
 title: User Interfaces, Metaphors and Midi Keyboards
-excerpt: 
+excerpt: I've had some free time lately (I recently left my job at RTI and am starting a PhD at Indiana University), so I've been reading and programming for fun again. Some of that reading and programming tied itself nicely into a coherent project that I've written up below. If you just want to skip to the programming, I've made a webapp available here.
 ---
 
 # User Interfaces, Metaphors and Midi Keyboards
