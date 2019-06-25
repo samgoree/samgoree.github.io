@@ -21,6 +21,8 @@ UCD can be taken even further, though. All you really need to apply it in an arb
 
 Musical instrument interface limitations also vary greatly from instrument to instrument; for example, piccolos must be small and held by the mouth horizontally, so there's no way to build a piccolo that doesn't involve the musician's hands being close to their face, while pipe organs can have virtually any interface, so they use the most familiar interface possible, keyboards, buttons and levers.
 
+(Revision 6/25/19: In hindsight, this section isn't quite correct. I'm not interested in applying UCD to musical instruments, I am more interested in applying ideas from interaction design research on metaphors and affordances. I'm going to leave the text as-is, though, since we're all a little wrong sometimes.)
+
 <img src="{{site.baseurl}}/assets/images/organ-console.jpg" alt="Organ Console" style="width: 75%; height: 75%"/>
 
 ### Metaphors
