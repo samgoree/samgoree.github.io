@@ -113,7 +113,9 @@ Like Munsell, the CIE also conviened to construct a perceptually uniform color e
 
 As we learned from Albers, perceptions of color similarity are not consistent: colors can look more or less similar based on context. As such, claiming that a color system is perceptually uniform, even for a constructed standard observer, doesn't really work. This dilemma is a problem for us, since we're trying to describe color schemes. Rather than give up, however, we can still get a reasonable solution by making a simplifying assumption. In our case, we can assume that the relationships between each pair of colors is the same regardless of context. While this assumption isn't true in general, it is only obviously wrong for specially constructed color schemes like the ones in Albers' book, and isn't a more extreme assumption than the standard observer assumption. Further, since the difference between two color schemes is a subjective, perceptual difference and not something precisely defined in the first place, any measurement we make will be approximate in the end.
 
-I think that's enough for one post! In the next post, I will discuss how we can model the difference between color schemes as a distance metric on color distributions using the Earth Mover's Distance and compute that distance using linear programming.
+I think that's enough for one post! In another post, I will discuss how we can model the difference between color schemes as a distance metric on color distributions using the Earth Mover's Distance.
+
+[You can see my next post on color scheme distances here!]({{site.baseurl}}/2019/07/13/color_theory_2.html)
 
 <img src="{{site.baseurl}}/assets/images/color/color-schemes.png" alt="Thanks for reading!"/>
 
