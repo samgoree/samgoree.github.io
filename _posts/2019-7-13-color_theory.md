@@ -115,8 +115,6 @@ As we learned from Albers, perceptions of color similarity are not consistent: c
 
 I think that's enough for one post! In another post, I will discuss how we can model the difference between color schemes as a distance metric on color distributions using the Earth Mover's Distance.
 
-[You can see my next post on color scheme distances here!]({{site.baseurl}}/2019/07/13/color_theory_2.html)
-
 <img src="{{site.baseurl}}/assets/images/color/color-schemes.png" alt="Thanks for reading!"/>
 
 [(source)](https://designshack.net/articles/graphics/best-tools-tips-for-choosing-website-color-scheme/)
