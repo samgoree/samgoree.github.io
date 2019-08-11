@@ -6,7 +6,22 @@ excerpt: In this section, we're going to start by looking at how to measure the 
 
 # Talking Mathematically About Color Schemes (Part II)
 
-In this section, we're going to start by looking at how to measure the difference between two colors, then define what a color scheme is in our quantitative framework and look at ways of extending our way of measuring difference to color schemes. If you're just getting here and didn't read [my previous post on color theory]({{site.baseurl}}/2019/07/13/color_theory.html), I'd recommend checking that out first!
+Last time, I posed the question, how do you measure the difference between two color schemes? If you're just getting here and didn't read [my previous post on color theory]({{site.baseurl}}/2019/07/13/color_theory.html), I'd recommend checking that out first! To quickly summarize, I started by discussing color, how we've historically understood it and how human color perception actually works. I then discussed a few color systems and defined how computers represent color.
+
+#### What Was I Looking For, Again?
+
+Before I start here, though, I realized I never really said what I meant by "measure the difference between two color schemes." What I mean is that I want to find some math that I can use to know whether a pair of color schemes are more similar to each other than another pair of color schemes. 
+
+Generally, in information retrieval, data science, digital humanities and other related fields, we use the mathematical concept of a distance metric to discuss concepts of similarity and difference. While I'll go into what that means in a little more detail later, the gist is that it should be a function of two arguments which returns a single positive real number. If two color schemes are very similar, this number will be small, and if they are quite different, it will be large. We can then use this metric to do things like quickly retrieve similar-color photos from a database, find clusters of similar color photos or measure the average color homogeneity of those photos.
+
+Additionally, there are a few intuitive rules that our metric should follow: two color schemes with several colors in common (e.g. one color scheme which is blue, green and gray and another which is blue, purple and gray) should have a smaller distance than two color schemes with no colors in common (e.g. blue, green and gray vs. red, yellow and orange). Additionally, slight changes in color should matter less than large changes in color (e.g. light blue and light green should be very close to dark blue and dark green, but not as close to black and pale green).
+
+<img src="{{site.baseurl}}/assets/images/color/color_examples.png" alt="Some intuitive examples of color distance" style="width: 75%; height: 75%"/>
+
+Of course, different people have different ideas of which color schemes are more similar, and some people might even disagree with these examples. It's important to keep in mind that a metric like this is a *model* of human color perception, not any fundamental, scientific or objective measure. If we wanted to be more scientific, we could do a study and measure what people think, and build a model that agrees with most people's ideas about color similarity, but we'll never be able to make a perfect model, since people disagree. I think it is better for us to come up with something that works alright, and keep its limitations in mind. As statisticians like to say, "all models are wrong, but some are useful."
+
+In this post, we're going to start by looking at how to measure the difference between two colors, then define what a color scheme is in our quantitative framework and look at ways of extending our way of measuring difference to color schemes. We'll eventually get to the main idea of [an influential paper](https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/rubner-jcviu-00.pdf) published by Yossi Rubner, Carlo Tomasi, and Leonidas J. Guibas. These are not my ideas, and they're not particularly new, but they're pretty neat and not super well-known outside of our world.
+
 
 ## Color Distance
 
@@ -14,7 +29,11 @@ So, given two colors represented as points in Lab color space, how do we quantif
 
 $$\sqrt{\sum\limits_{d=1}^n (x_d - y_d)^2}$$ 
 
-Where $$n = 3$$ and $$x_1$$ is the $$L$$ value, $$x_2$$ is the $$a$$ value and $$x_2$$ is the $$b$$ value.
+Where $$n = 3$$ and $$x_1$$ is the $$L$$ value, $$x_2$$ is the $$a$$ value and $$x_2$$ is the $$b$$ value. Visually, this looks like this:
+
+<img src="{{site.baseurl}}/assets/images/color/delta_e.png" alt="Euclidean distance in color space"/>
+
+[(source)](http://zschuessler.github.io/DeltaE/learn/)
 
 It turns out the CIE defined this as their official color distance in 1976, but have made a few modifications to make a slightly more correct color distance measure in the years since ([see here](https://en.wikipedia.org/wiki/Color_difference#CIELAB_%CE%94E*)). These more precise definitions are really only meaningful in the context of industrial manufacturing, so we won't worry about them for now. Using this distance metric, a distance of about 2.3 (in the units of Lab color space) is the threshold for a noticeable change.
 
@@ -25,7 +44,7 @@ One important concept here is that the Euclidean distance is a metric, which mea
 * $$d(x,y) = d(y,x)$$. The metric is symmetrical.
 * $$d(x,z) \leq d(x,y) + d(y,z)$$. This is called the triangle inequality, it means that given three points, if you draw a triangle between them, one side of the triangle can't be longer than the sum of the other two sides. Generally, to satisfy this requirement, a metric must measure the shortest distance between two objects.
 
-I say "objects" and not "colors" or "points" because we can define distance metrics on anything, including shapes, sets, strings of characters or other more sophisticated data structures. In particular, we're going to try to quantify the difference between color schemes by defining a distance metric on color distributions.
+I say "objects" and not "colors" or "points" because **we can define distance metrics on anything**, including shapes, sets, strings of characters or other more sophisticated data structures, and then use the same algorithms to process new kinds of data. In particular, we're going to try to quantify the difference between color schemes by defining a distance metric on color distributions.
 
 ## Color Distributions
 
@@ -57,6 +76,8 @@ $$ - \int\limits_{-\infty}^{\infty} x(c) \log(\frac{x(c)}{y(c)}) dc$$
 
 where $$x(c)$$ and $$y(c)$$ are the probability of color $$c$$ occurring in distribution $$x$$ and $$y$$, respectively. KL divergence is good for comparing two continuous distributions, and we can easily treat our distribution as continuous (using a Gaussian kernel estimator or some related technique). Unfortunately, it runs into problems when the probability of a color is zero in one distribution, but not another, which happens often when colors do not overlap. It also turns out that KL divergence isn't actually a metric: it doesn't satisfy the symmetry property, so $$D_{KL}(x,y) \not = D_{KL}(y,x)$$. While we can still use it, having to determine the order between our two color schemes leads to unpleasant and counterintuitive results.
 
+There are several other distance metrics that are commonly used for color unrelated to probability distributions, including the set difference and Hausdorff distance, but I'm not going to go into those here. These are all different models for difference which are useful in different circumstances.
+
 It turns out there is a good distance metric we can use that comes from a very different world: the Earth Mover's Distance (EMD), which is defined in terms of an algorithms problem called the Transportation Problem.
 
 ## The Transportation Problem
@@ -71,13 +92,13 @@ The Transportation Problem has a pretty intuitive setup. Imagine you have a cons
 
 [(source)](https://towardsdatascience.com/earth-movers-distance-68fff0363ef2)
 
-Finding the lowest cost strategy for transporting the dirt turns out to be hard, but not impossible, to solve efficiently. It is in a class of [minimum-cost flow problems](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem) which can be solved using linear programming with the [Network Simplex Algorithm](https://en.wikipedia.org/wiki/Network_simplex_algorithm). I'm not going to go into the details of how that works, if you're interested, take a class on optimization problems. The point is that we have an efficient algorithm which can find the minimum cost solution.
+Finding the lowest cost strategy for transporting the dirt turns out to be hard, but not impossible, to solve efficiently. It is in a class of [minimum-cost flow problems](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem) which can be solved using linear programming with the [Network Simplex Algorithm](https://en.wikipedia.org/wiki/Network_simplex_algorithm). I'm not going to go into the details of how that works, if you're interested, take a class on optimization problems, or just read a bunch of wikipedia pages. The point is that we have an efficient algorithm which can find the minimum cost solution.
 
 ## The Earth Mover's Distance
 
-What does this have to do with color schemes? Well, it turns out we can use it to define a distance. A probability distribution is a lot like an arrangement of dirt: both can be described by a function over some space (either a physical space for the dirt distribution or a sample space for the probability distribution), so we can solve the transportation problem for two probability distributions. It turns out that the minimum cost transportation strategy meets all of the requirements we had for a distance metric, and we can use it in combination with the CIE's perceptually uniform color distance. We call this distance the Earth Mover's Distance (EMD) or the Wasserstein metric. 
+What does this have to do with color schemes? Well, it turns out we can use it to define a distance. A probability distribution is a lot like an arrangement of dirt: both can be described by a function over some space (either a physical space for the dirt distribution or a sample space for the probability distribution), so we can solve the transportation problem for two probability distributions. It turns out that the minimum cost transportation strategy meets all of the requirements we had for a distance metric, and we can use it in combination with the CIE's perceptually uniform color distance. We call this distance the Earth Mover's Distance (EMD) or the Wasserstein metric.
 
-This metric has an intuitive interpretation: it's the amount we need to change the color of each pixel in an image until it has the same color scheme as another image. This metric is "smart" enough to know that if one image has dark blue and dark red, while another image has light blue and light red, it'll try to turn the dark blues into light blues, and not light reds. That means it solves the problems that we had with the chi-square distance and is actually a metric, unlike the KL divergence.
+This metric has an intuitive interpretation: it's the amount we need to change the color of each pixel in an image until it has the same color scheme as another image. This metric is "smart" enough to know that if one image has dark blue and dark green, while another image has light blue and light green, it'll try to turn the dark blues into light blues, and not light greens. That means it solves the problems that we had with the chi-square distance and is actually a metric, unlike the KL divergence.
 
 Because it's so clever, the EMD has a ton of cool applications in data science and machine learning. When used on word embeddings, it can be used to measure semantic similarity and understand that "Obama speaks to the media in Illinois" and "The president greets the press in Chicago" have very similar meanings, despite having almost no words in common! [Towards Data Science](https://towardsdatascience.com/word-distance-between-word-embeddings-cc3e9cf1d632) has a good explanation of this techinque. The EMD can also be used to [measure the similarity of melodies](http://www.cs.uu.nl/research/techreps/repo/CS-2003/2003-024.pdf) or [prevent mode collapse in generative adversarial networks](https://arxiv.org/pdf/1701.07875.pdf).
 
@@ -89,6 +110,8 @@ Unfortunately, treating colors as distributions ignores a lot of the color psych
 
 ## Conclusion
 
-I started these posts with a question: how do we measure the difference between two color schemes? To answer that question, we took a tour through color theory, figured out how to mathematically represent a color, then a color scheme and finally examined a couple candidate distance metrics before finding one with the properties we wanted. No metric is perfect, and measuring something as ephemeral as the difference between color schemes is kind of impossible, but hopefully by trying to measure it anyway, we learned something.
+I started these posts with a question: how do we measure the difference between two color schemes? To answer that question, we took a tour through color theory, figured out how to mathematically represent a color, then a color scheme and finally examined a couple candidate distance metrics before finding one with the properties we wanted. No metric is perfect, and measuring something as subjective as the difference between color schemes is impossible, but hopefully by trying to measure it anyway, we learned something about color and distance metrics. 
 
-This is the most central idea in my research at the moment. Trying to define and measure things which are impossible to define or measure is a great way to learn exactly why they are impossible to define, and if you propose a bad definition, it serves as a great starting point for discussing individuals' different ideas of what that thing is. As always, thanks for reading! Let me know at the address in the sidebar if you have any questions, comments or feedback!
+This is a good example of how research in my field works. Trying to model and measure fundamentally subjective aesthetic qualities which are impossible to model or measure is a great way to learn more about those things (as long as you don't take your measurements too seriously). All models are wrong, but figuring out their implications hopefully teaches you something.
+
+As always, thanks for reading! Let me know at the address in the sidebar if you have any questions, comments or feedback.
