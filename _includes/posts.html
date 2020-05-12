@@ -1,14 +1,11 @@
 <div class="posts-container container-block">
 <h2 class="container-block-title">Posts</h2>
 <ul class="list-unstyled posts-list">
-{% for post in site.posts %}
+{% for post in site.posts limit:8 %}
 <p><a href="{{ post.url }}">{{ post.title }}</a></p>
 {% endfor %}
+<p><b><a href="{{site.baseurl}}/all_posts.html">All Posts</a></b></p>
 </ul>
 </div><!--//posts-->
-
-
-
-
 <div class="remove-container container-block">
 </div><!--//posts-->
