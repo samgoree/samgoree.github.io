@@ -4,3 +4,5 @@ _site
 public
 assets/bundle.js
 node_modules
+_drafts
+assets/images/web_design_homogenization
