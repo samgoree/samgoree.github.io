@@ -1,7 +1,7 @@
 ---
 layout: default
 title: A Short History of Web Design
-excerpt: Over the past two years, I've been studying the history of web design. I wrote [an article about our work for The Conversation, and wrote a post on this blog about some of that work, but I haven't actually written about the history there yet. The following is my 1500 word summary of the history of web design.
+excerpt: Over the past two years, I've been studying the history of web design. I wrote an article about our work for The Conversation, and wrote a post on this blog about some of that work, but I haven't actually written about the history there yet. The following is my 1500 word summary of the history of web design.
 ---
 
 A Short History of Web Design
