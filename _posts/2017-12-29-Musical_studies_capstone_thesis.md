@@ -10,6 +10,8 @@ Now that I'm updating my blog again, it occurred to me that I never posted about
 
 The full paper, which is an analysis of the 20th century composer Iannis Xenakis' 1959 work *Analogique A et B*, is [available here]({{site.baseurl}}/assets/Capstone_Thesis.pdf). It, like most undergrad capstone theses, is far longer than it needed to be, but goes into some depth surrounding both the statistical tools that were used to make the piece and the tools I used to analyze it.
 
+*Addendum:* There's an error in that thesis document, I cite the fantastic [work on Xenakis by Kerry Hagan](http://www.ems-network.org/IMG/EMS2005-Hagan.pdf) but misgendered her in the text. I can't change the thesis file on OhioLink, but I'm really sorry!
+
 ## Self-Similarity Matrices
 
 The technique I'm interested in writing about is the self-similarity matrix, which is a tool for visualizing structure within sequence data. The best way to understand it is through examples. For instance, if we have a sequence of numbers 1,2,3,1,1,2,3,5 and want to understand which parts of the sequence are similar, we can compute the similarity of each pair of points, and arrange those numbers into a grid, where the similarity of points *a* and *b* is at position *(a,b)*. If we plot colors instead of numbers, we get a neat visualization.

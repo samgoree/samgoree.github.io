@@ -1,4 +1,4 @@
-Website for my ongoing honors project at Oberlin involving music composition using recurrent neural nets!
+Website for my personal research blog.
 
 See samgoree.github.io for the hosted site.
 
