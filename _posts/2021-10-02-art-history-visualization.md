@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Visualizing the Contour of an Artist's Career
-excerpt: I made some visualizations of art images over time! I think they have some interesting qualities which are worth discussing. My code is on Github so you can make plots like these too if you want.
+excerpt: I made some visualizations of art images over time using an interesting algorithm! I think they have some provocative qualities which are worth discussing. My code is on Github so you can make plots like these too if you want.
 ---
 
 # Visualizing the Contour of an Artist's Career With Dynamic Programming
 
-tl;dr I made some visualizations of art images over time! I think they have some interesting qualities which are worth discussing. My [code is on Github](https://github.com/samgoree/art-history-visualization/) so you can make plots like these too if you want.
+tl;dr I made some visualizations of art images over time using an interesting algorithm! I think they have some provocative qualities which are worth discussing. My [code is on Github](https://github.com/samgoree/art-history-visualization/) so you can make plots like these too if you want.
 
 <img src="{{site.baseurl}}/assets/images/art_history_visualization/rothko.png" alt="Two graphs of the paintings of mark rothko plotted by time, colorfulness and complexity" style="width: 100%; height: 100%"/>
 
@@ -24,11 +24,11 @@ In the late 1940's, however, Rothko's work shifted into painting rectangular fie
 
 <img src="{{site.baseurl}}/assets/images/art_history_visualization/no10.jpg" alt="Mark Rothko, No. 10, 1950" style="width: 50%; height: 50%"/>
 
-Mark Rothko, No. 10 (1950)
+Mark Rothko, No. 10 (1950) (Image from WikiArt)
 
 <img src="{{site.baseurl}}/assets/images/art_history_visualization/black_gray.jpg" alt="Mark Rothko, Untitled (Black on Gray), 1970" style="width: 50%; height: 50%"/>
 
-Mark Rothko, Untitled (Black on Gray), (1970)
+Mark Rothko, Untitled (Black on Gray), (1970) (Image from WikiArt)
 
 With that history in mind, look again at this visualization:
 
@@ -36,7 +36,7 @@ With that history in mind, look again at this visualization:
 
 These are scatter plots. The X axis has the years of the paintings, while the Y axis has a visual statistic: in the top plot, it is a measure of colorfulness while in the bottom, a measure of visual complexity. Rather than use little dots for the data points, however, I use the images of the paintings they represent. The blue lines track the average value of the visual statistic across Rothko's career, split automatically into periods.
 
-These plots tell almost exactly the same story as my two paragrph summary of Rothko's career. We can see the break between his initial impressionist and surrealist pieces, how the complexity plummets and colorfulness rises in 1948 when Rothko embraces color fields, and we can see how the colorfulness declines in the late 1950's and 60's as Rothko switches to a darker palette.
+These plots tell almost exactly the same story as my two paragraph summary of Rothko's career. We can see the break between his initial impressionist and surrealist pieces, how the complexity plummets and colorfulness rises in 1948 when Rothko embraces color fields, and we can see how the colorfulness declines in the late 1950's and 60's as Rothko switches to a darker palette.
 
 Still, the visualization captures several nuances which my summary left out. His shifts in the 40's were not actually so sudden: the paintings steadily grow more colorful and less complex from 1946-1948. Also, the shift towards darker colors is not complete: some of Rothko's most colorful works were painted in 1968. Lastly, while the overall complexity drops dramatically, several of these color field paintings are labeled as much more complex than they would seem: a great deal of that complexity is present in the brushstrokes, which are more visible in some works than others.
 
