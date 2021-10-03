@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Visualizing the Contour of an Artist's Career
+title: Visualizing the Contour of an Artist's Career With Dynamic Programming
 excerpt: I made some visualizations of art images over time using an interesting algorithm! I think they have some provocative qualities which are worth discussing. My code is on Github so you can make plots like these too if you want.
 ---
 
