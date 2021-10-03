@@ -64,9 +64,9 @@ I like these visualizations for another reason as well: they're an interesting g
 
 ### Periodization
 
-The interesting part of this visualization, at least from the computer science perspective, is the way that I separate out the life of the artist into periods. The problem is: given a dataset $$(x,y)$$, find the piecewise linear regression model $$\hat y = x^TW + B$$ which minimizes the sum of squared errors $$\sum\limits_i (y_i - \hat y_i)^2$$.
+The interesting part of this visualization, at least from the computer science perspective, is the way that I segment out the life of the artist into periods. The problem is: given a dataset $$(x,y)$$, find the piecewise linear regression model $$\hat y = x^TW + B$$ which minimizes the sum of squared errors $$\sum\limits_i (y_i - \hat y_i)^2$$.
 
-But simply minimizing the error runs into a problem: the optimal solution uses a separate line for each $$x$$ value, so we need to place a cost on switching from one line to another. The particular approach I use relies on the [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion), which gives a statistically-informed tradeoff between minimizing model complexity and maximizing the likelihood of the data:
+But simply minimizing the error runs into a problem: the optimal solution will use as many lines as there are $$x$$ values, and that's not an interesting solution, so we need to place a cost on switching from one line to another. The particular approach I use relies on the [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion), which gives a statistically-informed tradeoff between minimizing model complexity and maximizing the likelihood of the data:
 
 $$BIC = k \ln(n) - 2 \ln(\hat L)$$
 
@@ -76,7 +76,7 @@ So how do we find the optimal segmentation? Dynamic programming! If you aren't f
 
 $$OPT(x_1, x_2, k) = OPT(x_1, x_j, k-1) + SSE(x_j, x_2)$$
 
-Here $$SSE(x_i, x_2, 0)$$ is the sum of squared error for the linear model fit to the data in the interval $$(x_i, x_2)$$.
+Here $$SSE(x_i, x_2)$$ is the sum of squared error for the linear model fit to the data in the interval $$(x_i, x_2)$$.
 
 The algorithm to solve this problem starts by computing every value of $$SSE$$ for valid start and end points and stores them in a table, then iteratively finds the best solution with $$k=1$$ changepoint, then $$k=2$$ changepoints (which relies on the solution for $$k=1$$), and so on.
 
@@ -107,7 +107,7 @@ The last big question I think this project brings up is related to the automatio
 
 I hate this perspective, I think it misunderstands the point of humanistic inquiry. There is no "correct" or "optimal" way to think about the past, and the struggle to make sense of the complex and contradictory information we have is valuable in itself. Computers can't think contextually or make arguments (well, at least not any time soon), and they are limited to the relatively shallow insights which come from visual statistics.
 
-Instead, I think the value of "distant viewing" technology is in grounded self-reflection. When an expert looks at a painting, it is difficult for them to separate their interpretation from all their prior knowledge and training. They immediately recognize symbols and stylistic traits and start thinking about questions of meaning and interpretation. When we see that a computer vision algorithm only picked up on the fact that a given painting has a lot of red in it, that naivete is staggering, and kind of funny. It can help us to get out of the details and look at things from the simplest, least contextualized perspective. While that's no substitute for the actual, precise, contextualized work of art historians, I think it can be useful too.
+Instead, I think the value of "distant viewing" technology is in grounded self-reflection. When an expert looks at a painting, it is difficult for them to separate their interpretation from all their prior knowledge and training. They immediately recognize symbols and stylistic traits and start thinking about questions of meaning and interpretation. When we see that a computer vision algorithm only picked up on the fact that a given painting has a lot of red in it, that naivete is staggering, and kind of funny. It can help us to get out of the details and look at things from the simplest, least thoughtful perspective. While that's no substitute for the actual, precise, contextualized work of art historians, I think it's worth thinking about as well.
 
 ### Conclusion
 
