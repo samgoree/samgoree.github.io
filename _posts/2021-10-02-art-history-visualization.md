@@ -20,7 +20,7 @@ Mark Rothko, Entrance to Subway, 1938 (Image from WikiArt)
 
 Mark Rothko, Archaic Idol, 1945 (Image from WikiArt)
 
-In the late 1940's, however, Rothko's work shifted into painting rectangular fields of color. While he primarily used bright colors, his choices shifted towards darker shades as his mental health worsened over the following decades, leading up to his suicide in 1970.
+In the late 1940's Rothko's work shifted into painting rectangular fields of color. While he primarily used bright colors, his choices shifted towards darker shades as his mental health worsened over the following decades, leading up to his suicide in 1970.
 
 <img src="{{site.baseurl}}/assets/images/art_history_visualization/no10.jpg" alt="Mark Rothko, No. 10, 1950" style="width: 50%; height: 50%"/>
 
@@ -38,9 +38,9 @@ These are scatter plots. The X axis has the years of the paintings, while the Y 
 
 These plots tell almost exactly the same story as my two paragraph summary of Rothko's career. We can see the break between his initial impressionist and surrealist pieces, how the complexity plummets and colorfulness rises in 1948 when Rothko embraces color fields, and we can see how the colorfulness declines in the late 1950's and 60's as Rothko switches to a darker palette.
 
-Still, the visualization captures several nuances which my summary left out. His shifts in the 40's were not actually so sudden: the paintings steadily grow more colorful and less complex from 1946-1948. Also, the shift towards darker colors is not complete: some of Rothko's most colorful works were painted in 1968. Lastly, while the overall complexity drops dramatically, several of these color field paintings are labeled as much more complex than they would seem: a great deal of that complexity is present in the brushstrokes, which are more visible in some works than others.
+Still, the visualization captures several nuances which my summary left out. His shifts in the 40's were not actually so sudden: the paintings steadily grow more colorful and less complex from 1946-1948. The shift towards darker colors is also not total since some of Rothko's most colorful works were painted in 1968. Lastly, while the overall complexity drops dramatically, several of these color field paintings are labeled as much more complex than they would seem; a great deal of that complexity is present in the brushstrokes, which are more visible in some works than others.
 
-In the digital humanities (DH), we are interested in using technology to find new ways of looking at old topics, especially ways of making the subtle parts of humanistic inquiry, which are usually only available to experts, visible to everyone. A major theme in DH work is "distant reading" (or "distant viewing" in the case of art). An alternative to close reading, distant reading uses data analysis techniques to look at texts from a birds-eye view and make arguments about broad trends in the arts and literature. These plots are a great example of the value of distant viewing. They're totally automated: I arrange images, select change points in the horizontal lines and scale everything algorithmically, but there is a surprising amount of analytic depth which is made visible. Lev Manovich's recent book on [Cultural Analytics](https://mitpress.mit.edu/books/cultural-analytics) is great if you want to dig deeper into this topic.
+In the digital humanities, we are interested in using technology to find new ways of looking at old topics, especially ways of making the subtle parts of humanistic inquiry, which are usually only available to experts, visible to everyone. A major theme in DH work is "distant reading" (or "distant viewing" in the case of art). An alternative to close reading, distant reading uses data analysis techniques to look at texts from a birds-eye view and make arguments about broad trends in the arts and literature. These plots are a great example of the value of distant viewing. They're totally automated: I arrange images, select change points in the horizontal lines and scale everything algorithmically, but there is a surprising amount of analytic depth which is made visible. Lev Manovich's recent book on [Cultural Analytics](https://mitpress.mit.edu/books/cultural-analytics) is great if you want to dig deeper into this topic.
 
 Here are some more.
 
@@ -58,7 +58,7 @@ Here are some more.
 
 If you're interested, you can check out [my code on github](https://github.com/samgoree/art-history-visualization/) and create plots for other artists too.
 
-These three examples use a slightly different algorithm: they have a black line, corresponding to the 5-year rolling average of the statistic, and use a linear model, rather than an average, for each period. But they still tell us a surprising amount about the contour of each artist's career, given that they are simple scatterplots.
+These three examples are slightly different. They have a black line, corresponding to the 5-year rolling average of the statistic, and use a linear model, rather than an average, for each period. But they still tell us a surprising amount about the contour of each artist's career, given that they are simple scatterplots.
 
 I like these visualizations for another reason as well: they're an interesting ground for debate about the relationship between analytics and the humanities. Are simple visual statistics a helpful way to analyze paintings? How deeply can we understand a work of art without historical context? Does computational analysis give us access to an objective art history? Are we automating away the work of art historians? I'd like to discuss the technical side of the periodization algorithm, then briefly address these questions.
 
@@ -105,10 +105,12 @@ A computer vision algorithm could certainly be built to measure those characteri
 
 The last big question I think this project brings up is related to the automation and commodification of art history. Some people might say "If we have automatic algorithms to perform analysis and can measure their optimality, why bother writing papers about art history?"
 
-I hate this perspective, I think it misunderstands the point of humanistic inquiry. There is no "correct" or "optimal" way to think about the past, and the struggle to make sense of the complex and contradictory information we have is valuable in itself. Computers can't think contextually or make arguments (well, at least not any time soon), and they are limited to the relatively shallow insights which come from visual statistics.
+For whatever reason, I get questions like this one a lot whenever I talk about AI in the arts & humanities. I hate this perspective. I think it misunderstands the point of humanistic inquiry. 
+
+There is no "correct" or "optimal" way to think about the past, and the struggle to make sense of the complex and contradictory information we have is valuable in itself. Computers can't think contextually or make arguments (well, at least not any time soon), and they are limited to the relatively shallow insights which come from visual statistics.
 
 Instead, I think the value of "distant viewing" technology is in grounded self-reflection. When an expert looks at a painting, it is difficult for them to separate their interpretation from all their prior knowledge and training. They immediately recognize symbols and stylistic traits and start thinking about questions of meaning and interpretation. When we see that a computer vision algorithm only picked up on the fact that a given painting has a lot of red in it, that naivete is staggering, and kind of funny. It can help us to get out of the details and look at things from the simplest, least thoughtful perspective. While that's no substitute for the actual, precise, contextualized work of art historians, I think it's worth thinking about as well.
 
 ### Conclusion
 
-Thank you for reading! Check out [my code on Github](https://github.com/samgoree/art-history-visualization/) if you're interested in more of the details. Also, let me know if you have any questions or comments, or if you'd like me to make one of these plots for your favorite artist!
+Thank you for reading! Check out [my code on Github](https://github.com/samgoree/art-history-visualization/) if you're interested in more of the details. I'm also not an art historian, so if anything I've said here is incorrect, I'm receptive to corrections. Also, let me know if you have any questions or comments, or if you'd like me to make one of these plots for your favorite artist!
