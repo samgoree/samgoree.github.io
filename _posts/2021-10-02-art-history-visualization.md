@@ -64,7 +64,7 @@ I like these visualizations for another reason as well: they're an interesting g
 
 ### Periodization
 
-The interesting part of this visualization, at least from the computer science perspective, is the way that I segment out the life of the artist into periods. The problem is: given a dataset $$(x,y)$$, find the piecewise linear regression model $$\hat y = x^TW + B$$ which minimizes the sum of squared errors $$\sum\limits_i (y_i - \hat y_i)^2$$.
+The interesting part of this visualization, at least from the computer science perspective, is the way that I segment out the life of the artist into periods. The problem is: given a dataset $$(x,y)$$, find the piecewise linear regression model $$\hat y = x^TW + b$$ where $$W$$ and $$b$$ are chosen, along with the segmentation, to minimize the sum of squared errors $$\sum\limits_i (y_i - \hat y_i)^2$$.
 
 But simply minimizing the error runs into a problem: the optimal solution will use as many lines as there are $$x$$ values, and that's not an interesting solution, so we need to place a cost on switching from one line to another. The particular approach I use relies on the [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion), which gives a statistically-informed tradeoff between minimizing model complexity and maximizing the likelihood of the data:
 
