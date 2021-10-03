@@ -56,7 +56,7 @@ Here are some more.
 
 <img src="{{site.baseurl}}/assets/images/art_history_visualization/vermeer.png" alt="Graphs of the work of Johannes Vermeer" style="width: 100%; height: 100%"/>
 
-If you're interested, you can check out [my code on github](https://github.com/samgoree/art-history-visualization/) and look at the plots for other artists too.
+If you're interested, you can check out [my code on github](https://github.com/samgoree/art-history-visualization/) and create plots for other artists too.
 
 These three examples use a slightly different algorithm: they have a black line, corresponding to the 5-year rolling average of the statistic, and use a linear model, rather than an average, for each period. But they still tell us a surprising amount about the contour of each artist's career, given that they are simple scatterplots.
 
