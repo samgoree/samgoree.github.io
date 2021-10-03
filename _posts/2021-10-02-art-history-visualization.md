@@ -60,11 +60,11 @@ If you're interested, you can check out [my code on github](https://github.com/s
 
 These three examples use a slightly different algorithm: they have a black line, corresponding to the 5-year rolling average of the statistic, and use a linear model, rather than an average, for each period. But they still tell us a surprising amount about the contour of each artist's career, given that they are simple scatterplots.
 
-I like these visualizations for another reason as well: they're an interesting ground for debate about the relationship between analytics and the humanities. Are simple visual statistics a helpful way to analyze paintings? How deeply can we understand a work of art without historical context? Does computational analysis give us access to an objective art history? Are we automating away the work of art historians? I'd like to briefly address these questions.
+I like these visualizations for another reason as well: they're an interesting ground for debate about the relationship between analytics and the humanities. Are simple visual statistics a helpful way to analyze paintings? How deeply can we understand a work of art without historical context? Does computational analysis give us access to an objective art history? Are we automating away the work of art historians? I'd like to discuss the technical side of the periodization algorithm, then briefly address these questions.
 
 ### Periodization
 
-The really interesting part of this visualization, at least from the computer science perspective, is the way that I separate out the life of the artist into periods. The problem is: given a dataset $$(x,y)$$, find the piecewise linear regression model $$\hat y = W^Tx + B$$ which minimizes the sum of squared errors $$\sum\limits_i (y_i - \hat y_i)^2$$.
+The interesting part of this visualization, at least from the computer science perspective, is the way that I separate out the life of the artist into periods. The problem is: given a dataset $$(x,y)$$, find the piecewise linear regression model $$\hat y = x^TW + B$$ which minimizes the sum of squared errors $$\sum\limits_i (y_i - \hat y_i)^2$$.
 
 But simply minimizing the error runs into a problem: the optimal solution uses a separate line for each $$x$$ value, so we need to place a cost on switching from one line to another. The particular approach I use relies on the [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion), which gives a statistically-informed tradeoff between minimizing model complexity and maximizing the likelihood of the data:
 
