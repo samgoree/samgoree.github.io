@@ -76,11 +76,11 @@ So how do we find the optimal segmentation? Dynamic programming! If you aren't f
 
 $$OPT(x_1, x_2, k) = OPT(x_1, x_j, k-1) + SSE(x_j, x_2)$$
 
-Here $$SSE(x_i, x_2)$$ is the sum of squared error for the linear model fit to the data in the interval $$(x_i, x_2)$$.
+Here $$SSE(x_j, x_2)$$ is the sum of squared error for the linear model fit to the data in the interval $$(x_j, x_2)$$.
 
 The algorithm to solve this problem starts by computing every value of $$SSE$$ for valid start and end points and stores them in a table, then iteratively finds the best solution with $$k=1$$ changepoint, then $$k=2$$ changepoints (which relies on the solution for $$k=1$$), and so on.
 
-This isn't my idea, it's a common practice in computer science. The oldest reference to the technique that I could find is actually [a one-page paper from 1967 by Richard Bellman](https://dl.acm.org/doi/abs/10.1145/366573.366611) (of Bellman-Ford algorithm fame). It's also highly related to the math behind Hidden Markov Models.
+This isn't my idea, it's a common practice in computer science. The oldest reference to the technique that I could find is actually [a one-page paper from 1961 by Richard Bellman](https://dl.acm.org/doi/abs/10.1145/366573.366611) (of Bellman-Ford algorithm fame). It's also highly related to the math behind Hidden Markov Models.
 
 The dynamic programming approach is surprisingly good for segmenting the careers of artists, especially when combined with the Bayesian information criterion. It can be generalized for any model of any feature, not just lines fit to a single characteristic like colorfulness. For example, we could project our paintings into some unsupervised deep representation and segment the works based on those features. But that doesn't really lend itself as well to visualization.
 
