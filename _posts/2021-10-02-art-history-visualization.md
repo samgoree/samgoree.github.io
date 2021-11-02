@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Visualizing the Contour of an Artist's Career
+title: Visualizing the Contour of an Artist's Career With Dynamic Programming
 excerpt: I made some visualizations of art images over time using an interesting algorithm! I think they have some provocative qualities which are worth discussing. My code is on Github so you can make plots like these too if you want.
 ---
 
@@ -20,7 +20,7 @@ Mark Rothko, Entrance to Subway, 1938 (Image from WikiArt)
 
 Mark Rothko, Archaic Idol, 1945 (Image from WikiArt)
 
-In the late 1940's, however, Rothko's work shifted into painting rectangular fields of color. While he primarily used bright colors, his choices shifted towards darker shades as his mental health worsened over the following decades, leading up to his suicide in 1970.
+In the late 1940's Rothko's work shifted into painting rectangular fields of color. While he primarily used bright colors, his choices shifted towards darker shades as his mental health worsened over the following decades, leading up to his suicide in 1970.
 
 <img src="{{site.baseurl}}/assets/images/art_history_visualization/no10.jpg" alt="Mark Rothko, No. 10, 1950" style="width: 50%; height: 50%"/>
 
@@ -36,11 +36,13 @@ With that history in mind, look again at this visualization:
 
 These are scatter plots. The X axis has the years of the paintings, while the Y axis has a visual statistic: in the top plot, it is a measure of colorfulness while in the bottom, a measure of visual complexity. Rather than use little dots for the data points, however, I use the images of the paintings they represent. The blue lines track the average value of the visual statistic across Rothko's career, split automatically into periods.
 
+The particular measure of colorfulness is the average distance in the a-b plane of [Lab color space](https://en.wikipedia.org/wiki/CIELAB_color_space) from each pixel's color value to the average, inspired by [a paper by Hasler and Süsstrunk](https://infoscience.epfl.ch/record/33994?ln=en). The measure of complexity is the average value of the edgemap found using a Canny edge detector on the image, taken directly from [a paper by Machado et al.](https://evocog.org/wp-content/uploads/2017/01/Machado-2015-nadal-complejidad-preferencia-arte-est%C3%A9tica.pdf).
+
 These plots tell almost exactly the same story as my two paragraph summary of Rothko's career. We can see the break between his initial impressionist and surrealist pieces, how the complexity plummets and colorfulness rises in 1948 when Rothko embraces color fields, and we can see how the colorfulness declines in the late 1950's and 60's as Rothko switches to a darker palette.
 
-Still, the visualization captures several nuances which my summary left out. His shifts in the 40's were not actually so sudden: the paintings steadily grow more colorful and less complex from 1946-1948. Also, the shift towards darker colors is not complete: some of Rothko's most colorful works were painted in 1968. Lastly, while the overall complexity drops dramatically, several of these color field paintings are labeled as much more complex than they would seem: a great deal of that complexity is present in the brushstrokes, which are more visible in some works than others.
+Still, the visualization captures several nuances which my summary left out. His shifts in the 40's were not actually so sudden: the paintings steadily grow more colorful and less complex from 1946-1948. The shift towards darker colors is also not total since some of Rothko's most colorful works were painted in 1968. Lastly, while the overall complexity drops dramatically, several of these color field paintings are labeled as much more complex than they would seem; a great deal of that complexity is present in the brushstrokes, which are more visible in some works than others.
 
-In the digital humanities (DH), we are interested in using technology to find new ways of looking at old topics, especially ways of making the subtle parts of humanistic inquiry, which are usually only available to experts, visible to everyone. A major theme in DH work is "distant reading" (or "distant viewing" in the case of art). An alternative to close reading, distant reading uses data analysis techniques to look at texts from a birds-eye view and make arguments about broad trends in the arts and literature. These plots are a great example of the value of distant viewing. They're totally automated: I arrange images, select change points in the horizontal lines and scale everything algorithmically, but there is a surprising amount of analytic depth which is made visible. Lev Manovich's recent book on [Cultural Analytics](https://mitpress.mit.edu/books/cultural-analytics) is great if you want to dig deeper into this topic.
+In the digital humanities, we are interested in using technology to find new ways of looking at old topics, especially ways of making the subtle parts of humanistic inquiry, which are usually only available to experts, visible to everyone. A major theme in DH work is "distant reading" (or "distant viewing" in the case of art). An alternative to close reading, distant reading uses data analysis techniques to look at texts from a birds-eye view and make arguments about broad trends in the arts and literature. These plots are a great example of the value of distant viewing. They're totally automated: I arrange images, select change points in the horizontal lines and scale everything algorithmically, but there is a surprising amount of analytic depth which is made visible. Lev Manovich's recent book on [Cultural Analytics](https://mitpress.mit.edu/books/cultural-analytics) is great if you want to dig deeper into this topic.
 
 Here are some more.
 
@@ -56,17 +58,17 @@ Here are some more.
 
 <img src="{{site.baseurl}}/assets/images/art_history_visualization/vermeer.png" alt="Graphs of the work of Johannes Vermeer" style="width: 100%; height: 100%"/>
 
-If you're interested, you can check out [my code on github](https://github.com/samgoree/art-history-visualization/) and look at the plots for other artists too.
+If you're interested, you can check out [my code on github](https://github.com/samgoree/art-history-visualization/) and create plots for other artists too.
 
-These three examples use a slightly different algorithm: they have a black line, corresponding to the 5-year rolling average of the statistic, and use a linear model, rather than an average, for each period. But they still tell us a surprising amount about the contour of each artist's career, given that they are simple scatterplots.
+These three examples are slightly different. They have a black line, corresponding to the 5-year rolling average of the statistic, and use a linear model, rather than an average, for each period. But they still tell us a surprising amount about the contour of each artist's career, given that they are simple scatterplots.
 
-I like these visualizations for another reason as well: they're an interesting ground for debate about the relationship between analytics and the humanities. Are simple visual statistics a helpful way to analyze paintings? How deeply can we understand a work of art without historical context? Does computational analysis give us access to an objective art history? Are we automating away the work of art historians? I'd like to briefly address these questions.
+I like these visualizations for another reason as well: they're an interesting ground for debate about the relationship between analytics and the humanities. Are simple visual statistics a helpful way to analyze paintings? How deeply can we understand a work of art without historical context? Does computational analysis give us access to an objective art history? Are we automating away the work of art historians? I'd like to discuss the technical side of the periodization algorithm, then briefly address these questions.
 
 ### Periodization
 
-The really interesting part of this visualization, at least from the computer science perspective, is the way that I separate out the life of the artist into periods. The problem is: given a dataset $$(x,y)$$, find the piecewise linear regression model $$\hat y = W^Tx + B$$ which minimizes the sum of squared errors $$\sum\limits_i (y_i - \hat y_i)^2$$.
+The interesting part of this visualization, at least from the computer science perspective, is the way that I segment out the life of the artist into periods. The problem is: given a dataset $$(x,y)$$, find the piecewise linear regression model $$\hat y = x^TW + b$$ where $$W$$ and $$b$$ are chosen, along with the segmentation, to minimize the sum of squared errors $$\sum\limits_i (y_i - \hat y_i)^2$$.
 
-But simply minimizing the error runs into a problem: the optimal solution uses a separate line for each $$x$$ value, so we need to place a cost on switching from one line to another. The particular approach I use relies on the [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion), which gives a statistically-informed tradeoff between minimizing model complexity and maximizing the likelihood of the data:
+But simply minimizing the error runs into a problem: the optimal solution will use as many lines as there are $$x$$ values, and that's not an interesting solution, so we need to place a cost on switching from one line to another. The particular approach I use relies on the [Bayesian Information Criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion), which gives a statistically-informed tradeoff between minimizing model complexity and maximizing the likelihood of the data:
 
 $$BIC = k \ln(n) - 2 \ln(\hat L)$$
 
@@ -76,11 +78,11 @@ So how do we find the optimal segmentation? Dynamic programming! If you aren't f
 
 $$OPT(x_1, x_2, k) = OPT(x_1, x_j, k-1) + SSE(x_j, x_2)$$
 
-Here $$SSE(x_i, x_2, 0)$$ is the sum of squared error for the linear model fit to the data in the interval $$(x_i, x_2)$$.
+Here $$SSE(x_j, x_2)$$ is the sum of squared error for the linear model fit to the data in the interval $$(x_j, x_2)$$.
 
 The algorithm to solve this problem starts by computing every value of $$SSE$$ for valid start and end points and stores them in a table, then iteratively finds the best solution with $$k=1$$ changepoint, then $$k=2$$ changepoints (which relies on the solution for $$k=1$$), and so on.
 
-This isn't my idea, it's a common practice in computer science. The oldest reference to the technique that I could find is actually [a one-page paper from 1967 by Richard Bellman](https://dl.acm.org/doi/abs/10.1145/366573.366611) (of Bellman-Ford algorithm fame). It's also highly related to the math behind Hidden Markov Models.
+This isn't my idea, it's a common practice in computer science. The oldest reference to the technique that I could find is actually [a one-page paper from 1961 by Richard Bellman](https://dl.acm.org/doi/abs/10.1145/366573.366611) (of Bellman-Ford algorithm fame). It's also highly related to the math behind Hidden Markov Models.
 
 The dynamic programming approach is surprisingly good for segmenting the careers of artists, especially when combined with the Bayesian information criterion. It can be generalized for any model of any feature, not just lines fit to a single characteristic like colorfulness. For example, we could project our paintings into some unsupervised deep representation and segment the works based on those features. But that doesn't really lend itself as well to visualization.
 
@@ -105,10 +107,12 @@ A computer vision algorithm could certainly be built to measure those characteri
 
 The last big question I think this project brings up is related to the automation and commodification of art history. Some people might say "If we have automatic algorithms to perform analysis and can measure their optimality, why bother writing papers about art history?"
 
-I hate this perspective, I think it misunderstands the point of humanistic inquiry. There is no "correct" or "optimal" way to think about the past, and the struggle to make sense of the complex and contradictory information we have is valuable in itself. Computers can't think contextually or make arguments (well, at least not any time soon), and they are limited to the relatively shallow insights which come from visual statistics.
+For whatever reason, I get questions like this one a lot whenever I talk about AI in the arts & humanities. I hate this perspective. I think it misunderstands the point of humanistic inquiry. 
 
-Instead, I think the value of "distant viewing" technology is in grounded self-reflection. When an expert looks at a painting, it is difficult for them to separate their interpretation from all their prior knowledge and training. They immediately recognize symbols and stylistic traits and start thinking about questions of meaning and interpretation. When we see that a computer vision algorithm only picked up on the fact that a given painting has a lot of red in it, that naivete is staggering, and kind of funny. It can help us to get out of the details and look at things from the simplest, least contextualized perspective. While that's no substitute for the actual, precise, contextualized work of art historians, I think it can be useful too.
+There is no "correct" or "optimal" way to think about the past, and the struggle to make sense of the complex and contradictory information we have is valuable in itself. Computers can't think contextually or make arguments (well, at least not any time soon), and they are limited to the relatively shallow insights which come from visual statistics.
+
+Instead, I think, in addition to communicating concepts visually, "distant viewing" technology is valuable because it gives us perspective. When an expert looks at a painting, it is difficult for them to separate their interpretation from all their prior knowledge and training. They immediately recognize symbols and stylistic traits and start thinking about questions of meaning and interpretation. When we see that a computer vision algorithm only picked up on the fact that a given painting has a lot of red in it, that naivete is staggering, and kind of funny. It can help us to get out of the details and take a shallow, less thoughtful perspective over a wide range of works. While that's no substitute for the actual, precise, contextualized work of art historians, I think it's worth thinking about as well.
 
 ### Conclusion
 
-Thank you for reading! Check out [my code on Github](https://github.com/samgoree/art-history-visualization/) if you're interested in more of the details. Also, let me know if you have any questions or comments, or if you'd like me to make one of these plots for your favorite artist!
+Thank you for reading! Check out [my code on Github](https://github.com/samgoree/art-history-visualization/) if you're interested in more of the details. I'm also not an art historian, so if anything I've said here is incorrect, I'm receptive to corrections. Also, let me know if you have any questions or comments, or if you'd like me to make one of these plots for your favorite artist!
