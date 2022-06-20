@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Tracing the Origins of optimizationism
+title: Tracing the Origins of Optimizationism
 excerpt: In mathematics, optimization is a technique for finding the highest or lowest value of a function. In machine learning we use optimization as a tool for fitting models to data, but it is more than that. In many ways, computer scientists engage with optimization more like an ideology.
 ---
 
