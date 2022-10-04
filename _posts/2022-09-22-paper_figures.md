@@ -8,7 +8,7 @@ excerpt: If you've spent any time reading computer vision research papers over t
 
 
 
-If you've spent any time reading computer vision papers over the past few years, you've probably noticed a big change in the way papers look, driven by the deep learning revolution and following boom in computer vision. We (me, [Gabe Appleby](https://valt.cs.tufts.edu/people.html), [David Crandall](https://homes.luddy.indiana.edu/djcran/) and [Norman Su](https://users.soe.ucsc.edu/~normsu/)) wrote a paper about these changes, and how they both reflect and shape computer vision. If that sounds interesting, read our [paper]({{site.baseurl}}/assets/attention_arxiv_version.pdf)!
+If you've spent any time reading computer vision papers over the past few years, you've probably noticed a big change in the way papers look, driven by the deep learning revolution and following boom in computer vision. We (me, [Gabe Appleby](https://valt.cs.tufts.edu/people.html), [David Crandall](https://homes.luddy.indiana.edu/djcran/) and [Norman Su](https://users.soe.ucsc.edu/~normsu/)) wrote a paper about these changes, and how they both reflect and shape computer vision. If that sounds interesting, read our [paper](https://arxiv.org/abs/2209.11200)!
 
 <img src='{{site.baseurl}}/assets/images/attention/teasers.png' alt='Several teaser images from computer vision research papers, including elements like various 3D models of human faces and bodies, images with bounding boxes and distorted images.' style="width: 100%; height: 100%"/>
 
