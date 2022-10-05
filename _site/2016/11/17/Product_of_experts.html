@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Project Summary | Sam Goree</title>
+  <link rel="stylesheet" href="/assets/libs/bootstrap/bootstrap.min.css">
+  <script defer src="/assets/libs/fontawesome/all.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-icon-152x152.png">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif" rel="stylesheet">
+</head>
+
+  <body>
+    <div class="col-lg-8 mx-auto p-3 py-md-5">
+      <header class="d-flex flex-column flex-md-row align-items-center pb-3 mb-5 border-bottom">
+  <div>
+    <a href="/" class="d-flex align-items-center text-decoration-none">
+      <span class="fs-4 fw-bold">Sam Goree</span>
+    </a>
+    <a href="/" class="d-flex align-items-center text-decoration-none">
+      <span></span>
+    </a>
+  </div>
+  <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+    
+      <a class="me-3 py-2 text-decoration-none" href="/index#about">About</a>
+    
+      <a class="me-3 py-2 text-decoration-none" href="/posts">Posts</a>
+    
+      <a class="me-3 py-2 text-decoration-none" href="/cv">CV</a>
+    
+      <a class="me-3 py-2 text-decoration-none" href="/contact">Contact</a>
+    
+  </nav>
+</header>
+      <h1 id="why-am-i-doing-this">Why am I Doing this?</h1>
+
+<h5 id="111716">11/17/16</h5>
+
+<p>My goal with this project is to investigate methods for procedurally generating voice leading by learning trends in existing music, rather than starting from pre-existing composition rules. My reasons for this are two-fold. First, while undergrad composition and music theory classes in the conservatory model have strict composition rules as their bread and butter, mature composers of the past and present by and large compose music by recreating music they enjoy or find interesting, often by breaking the established rules of their chosen form. Second, there are many examples in the music composition literature of prescriptive, rule-based models for stochastic composition (see Hiller, Tenney, Xenakis, Eno, etc.). As far as I know, there are only a few people who have tried to do composition using machine learning techinques.</p>
+
+<h3 id="why-voice-leading">Why Voice Leading?</h3>
+
+<p>I’m specifying four part harmony as my musical genre of choice because it is very regular. While composers don’t necessarily follow all of the strict rules that a rule-based generative model would need to produce realistic melodies, they do follow some heuristics that a model can pick up on (like avoiding parallel fifths and octaves, avoiding voice crossing or overlap, a leap up should be followed by a step down).</p>
+
+<h3 id="why-neural-nets">Why Neural Nets?</h3>
+
+<p>My machine learning model of choice is a recurrent neural network. I like neural networks a lot for this sort of problem because they are good at establishing complex dependencies between attributes. Also, there have been a lot of recent advancements in deep learning and techniques used to achieve breakthroughs in similar sequential learning problems may prove useful. Also deep learning is shiny and new.</p>
+
+<h3 id="what-now">What Now?</h3>
+
+<p>My plan currently is to build several different neural net architectures that approach the problem in different ways and do a listening test with human subjects, including a sample of music majors and non-music majors. I’ve finished the first of these architectures, a simple generative model that takes absolute pitch data from the previous timestep as input and outputs absolute pitch data for the next timestep. I’m currently testing another model based on Geoffrey Hinton’s <a href="http://www.cs.toronto.edu/~hinton/absps/tr00-004.pdf">Product of Experts</a> concept, which I am approaching in a way similar to prior research I’ve done with <a href="http://www.hexahedria.com/2016/08/08/summer-research-on-the-hmc-intelligent-music-software-team.html">a colleague</a>. I plan, given time, to look into non-recurrent approaches as well.</p>
+
+<p>So, that’s where I’m at right now. I’ll post again within the next few days explaining the details of my summer research and how it has played into my current research, and then probably post again once I have concrete results.</p>
+
+      <footer class="pt-5 my-5 text-muted border-top">
+  <div class="row">
+    <div class="col-md-6 text-end social-media-icons">
+      
+        <a href="https://github.com/samgoree" class="ms-3 fs-5" style="color: #000000;"><i class="fab fa-github"></i></a>
+      
+        <a href="https://twitter.com/sam__goree" class="ms-3 fs-5" style="color: #000000;"><i class="fab fa-twitter"></i></a>
+      
+        <a href="https://linkedin.com/in/samuel-goree-38214471" class="ms-3 fs-5" style="color: #000000;"><i class="fab fa-linkedin"></i></a>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-11 text-center">
+      Site design based on <a href="https://github.com/LeNPaul/academic">this template</a>.
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </body>
+</html>

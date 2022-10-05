@@ -1,0 +1,24 @@
+<div class="row g-5 mb-5">
+  <div>
+    <h3 class="fw-bold border-bottom pb-3 mb-5">Contact</h3>
+    {% for contact in site.data.settings.contacts %}
+    <div class="row g-5 mb-5">
+      <div class="col-md-6">
+        <p>I'm a {{ contact.title }} in the {{ contact.department }}, {{ contact.institution }}</p>
+        <p>I'm easiest to contact via email! Twitter or LinkedIn DM will also probably reach me.</p>
+        <p>Pronouns: he/him</p>
+        <p>Email: {{ contact.email }}</p>
+        {% for item in site.data.settings.social %}
+        <p>{{item.icon | capitalize}}: <a href="{{ item.link }}" class="ms-3 fs-5" style="color: #000000;"><i class="fab fa-{{ item.icon }}"></i></a></p>
+        {% endfor %}
+      </div>
+      <div class="col-md-6">
+          <p><a href="{{site.baseurl}}/assets/cycleGAN/index2.html" ><img src="{{site.baseurl}}/assets/cycleGAN/images2/00020_fake_Bs_last.png" alt="" style="margin: 0px 10px 0px 0px;"></a>
+          <a href="{{site.baseurl}}/assets/cycleGAN/index2.html" ><img src="{{site.baseurl}}/assets/cycleGAN/images2/00020_rec_Bs_last.png" alt="" style="margin: 0px 0px 0px 0px;"></a></p>
+          <p><a href="{{site.baseurl}}/assets/cycleGAN/index2.html" ><img src="{{site.baseurl}}/assets/cycleGAN/images2/00050_rec_Bs_last.png" alt="" style="margin: 0px 10px 0px 0px;"></a>
+          <a href="{{site.baseurl}}/assets/cycleGAN/index2.html" ><img src="{{site.baseurl}}/assets/cycleGAN/images2/00040_rec_Bs_last.png" alt="" style="margin: 0px 0px 0px 0px;"></a></p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

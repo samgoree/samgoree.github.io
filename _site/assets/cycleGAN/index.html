@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CycleGAN and Mimesis</title>
+    <style type=text/css>
+      body {background-color: #dae6f2;}
+      p {
+        font-family: "Noto Sans", "Open Sans", sans-serif;
+        font-weight: lighter;
+        font-size: 18px;
+        max-width:1550px;
+      }
+      h1 {font-family: "Noto Sans", "Open Sans", sans-serif; font-weight: lighter; font-size: 48px;}
+      h3 {font-family: "Noto Sans", "Open Sans", sans-serif; font-weight: lighter; font-size: 36px;}
+    </style>
+  </head>
+  <body>
+    <h1>CycleGAN Fa&ccedil;ade Art</h1>
+    <p>Generative Adversarial Networks (GANs), like all machine learning models, are memetic. Few more so than CycleGANs, which learn a mapping between two modes: in this case, building fa&ccedil;ades and segmentation maps with windows, etc. labeled by different colored rectangles. One model, f, learns f(fa&ccedil;ade) = segmentation while the other, g, learns g(segmentation) = fa&ccedil;ade. These models are trained to convert back and forth from one mode to the other, so they ideally learn a perfect mapping, i.e. f(g(B)) = B and g(f(A)) = A.</p>
+
+    <p>In each of the following studies, mode A is interpreted as the Fa&ccedil;ade of a building, mode B is the segmentation map. real_A and real_B are the input images, which are unmodified. generated_B and generated_A are the corresponding examples in the other mode, i.e. f(real_A) and g(real_B). reconstruction_A and reconstruction_B are the reconstructions of real_A and real_B, i.e. g(f(real_A)) and f(g(real_B)).</p>
+    <h3>CycleGAN</h3>
+    <table border="1" style="table-layout: fixed;">
+      <tr>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_real_A.png">
+              <img src="images/1_real_A.png" style="width:256px">
+            </a><br>
+            <p>real_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_fake_B.png">
+              <img src="images/1_fake_B.png" style="width:256px">
+            </a><br>
+            <p>generated_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_rec_A.png">
+              <img src="images/1_rec_A.png" style="width:256px">
+            </a><br>
+            <p>reconstruction_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_real_B.png">
+              <img src="images/1_real_B.png" style="width:256px">
+            </a><br>
+            <p>real_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_fake_A.png">
+              <img src="images/1_fake_A.png" style="width:256px">
+            </a><br>
+            <p>generated_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_rec_B.png">
+              <img src="images/1_rec_B.png" style="width:256px">
+            </a><br>
+            <p>reconstruction_B</p>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p>Unfortunately, like any transcription from one mode to another, the reconstruction process is imperfect and introduces artifacts. If repeated many times, those artifacts overwhelm the original signal.</p>
+    <h3>Study 1</h3>
+    <table border="1" style="table-layout: fixed;">
+      <tr>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_real_A.png">
+              <img src="images/1_real_A.png" style="width:256px">
+            </a><br>
+            <p>real_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_fake_Bs.gif">
+              <img src="images/1_fake_Bs.gif" style="width:256px">
+            </a><br>
+            <p>generated_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_rec_As.gif">
+              <img src="images/1_rec_As.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_real_B.png">
+              <img src="images/1_real_B.png" style="width:256px">
+            </a><br>
+            <p>real_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_fake_As.gif">
+              <img src="images/1_fake_As.gif" style="width:256px">
+            </a><br>
+            <p>generated_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/1_rec_Bs.gif">
+              <img src="images/1_rec_Bs.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_B</p>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <h3>Study 2</h3>
+    <table border="1" style="table-layout: fixed;">
+      <tr>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/3_real_A.png">
+              <img src="images/3_real_A.png" style="width:256px">
+            </a><br>
+            <p>real_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/3_fake_Bs.gif">
+              <img src="images/3_fake_Bs.gif" style="width:256px">
+            </a><br>
+            <p>generated_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/3_rec_As.gif">
+              <img src="images/3_rec_As.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/3_real_B.png">
+              <img src="images/3_real_B.png" style="width:256px">
+            </a><br>
+            <p>real_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/3_fake_As.gif">
+              <img src="images/3_fake_As.gif" style="width:256px">
+            </a><br>
+            <p>generated_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/3_rec_Bs.gif">
+              <img src="images/3_rec_Bs.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_B</p>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <h3>Study 3: After Alvin Lucier</h3>
+    <table border="1" style="table-layout: fixed;">
+      <tr>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/993_real_A.png">
+              <img src="images/993_real_A.png" style="width:256px">
+            </a><br>
+            <p>real_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/993_fake_Bs.gif">
+              <img src="images/993_fake_Bs.gif" style="width:256px">
+            </a><br>
+            <p>generated_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/993_rec_As.gif">
+              <img src="images/993_rec_As.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/993_real_B.png">
+              <img src="images/993_real_B.png" style="width:256px">
+            </a><br>
+            <p>real_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/993_fake_As.gif">
+              <img src="images/993_fake_As.gif" style="width:256px">
+            </a><br>
+            <p>generated_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/993_rec_Bs.gif">
+              <img src="images/993_rec_Bs.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_B</p>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/994_real_A.png">
+              <img src="images/994_real_A.png" style="width:256px">
+            </a><br>
+            <p>real_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/994_fake_Bs.gif">
+              <img src="images/994_fake_Bs.gif" style="width:256px">
+            </a><br>
+            <p>generated_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/994_rec_As.gif">
+              <img src="images/994_rec_As.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/994_real_B.png">
+              <img src="images/994_real_B.png" style="width:256px">
+            </a><br>
+            <p>real_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/994_fake_As.gif">
+              <img src="images/994_fake_As.gif" style="width:256px">
+            </a><br>
+            <p>generated_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/994_rec_Bs.gif">
+              <img src="images/994_rec_Bs.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_B</p>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p>In studies 3-6, real_A and real_B are the same image. While that breaks the assumptions of the model, CycleGANs are robust and manage out-of-distribution data quite well. Notice the differences between f(g(x)) and g(f(x)).</p>
+    <h3>Study 4: After Paul Klee</h3>
+    <table border="1" style="table-layout: fixed;">
+      <tr>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/997_real_A.png">
+              <img src="images/997_real_A.png" style="width:256px">
+            </a><br>
+            <p>real_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/997_fake_Bs.gif">
+              <img src="images/997_fake_Bs.gif" style="width:256px">
+            </a><br>
+            <p>generated_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/997_rec_As.gif">
+              <img src="images/997_rec_As.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/997_real_B.png">
+              <img src="images/997_real_B.png" style="width:256px">
+            </a><br>
+            <p>real_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/997_fake_As.gif">
+              <img src="images/997_fake_As.gif" style="width:256px">
+            </a><br>
+            <p>generated_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/997_rec_Bs.gif">
+              <img src="images/997_rec_Bs.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_B</p>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <h3>Study 5: After Piet Mondrian</h3>
+    <table border="1" style="table-layout: fixed;">
+      <tr>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/995_real_A.png">
+              <img src="images/995_real_A.png" style="width:256px">
+            </a><br>
+            <p>real_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/995_fake_Bs.gif">
+              <img src="images/995_fake_Bs.gif" style="width:256px">
+            </a><br>
+            <p>generated_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/995_rec_As.gif">
+              <img src="images/995_rec_As.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/995_real_B.png">
+              <img src="images/995_real_B.png" style="width:256px">
+            </a><br>
+            <p>real_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/995_fake_As.gif">
+              <img src="images/995_fake_As.gif" style="width:256px">
+            </a><br>
+            <p>generated_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/995_rec_Bs.gif">
+              <img src="images/995_rec_Bs.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_B</p>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <h3>Study 6: After Hundertwasserhaus</h3>
+    <table border="1" style="table-layout: fixed;">
+      <tr>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/999_real_A.png">
+              <img src="images/999_real_A.png" style="width:256px">
+            </a><br>
+            <p>real_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/999_fake_Bs.gif">
+              <img src="images/999_fake_Bs.gif" style="width:256px">
+            </a><br>
+            <p>generated_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/999_rec_As.gif">
+              <img src="images/999_rec_As.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/999_real_B.png">
+              <img src="images/999_real_B.png" style="width:256px">
+            </a><br>
+            <p>real_B</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/999_fake_As.gif">
+              <img src="images/999_fake_As.gif" style="width:256px">
+            </a><br>
+            <p>generated_A</p>
+          </p>
+        </td>
+        <td halign="center" style="word-wrap: break-word;" valign="top">
+          <p>
+            <a href="images/999_rec_Bs.gif">
+              <img src="images/999_rec_Bs.gif" style="width:256px">
+            </a><br>
+            <p>reconstruction_B</p>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p>See <a href="index2.html">this second page</a> for some more CycleGAN Art!</p>
+  </body>
+</html>

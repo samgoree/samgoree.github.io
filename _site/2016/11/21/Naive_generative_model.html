@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Naive Generative Model | Sam Goree</title>
+  <link rel="stylesheet" href="/assets/libs/bootstrap/bootstrap.min.css">
+  <script defer src="/assets/libs/fontawesome/all.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-icon-152x152.png">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif" rel="stylesheet">
+</head>
+
+  <body>
+    <div class="col-lg-8 mx-auto p-3 py-md-5">
+      <header class="d-flex flex-column flex-md-row align-items-center pb-3 mb-5 border-bottom">
+  <div>
+    <a href="/" class="d-flex align-items-center text-decoration-none">
+      <span class="fs-4 fw-bold">Sam Goree</span>
+    </a>
+    <a href="/" class="d-flex align-items-center text-decoration-none">
+      <span></span>
+    </a>
+  </div>
+  <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+    
+      <a class="me-3 py-2 text-decoration-none" href="/index#about">About</a>
+    
+      <a class="me-3 py-2 text-decoration-none" href="/posts">Posts</a>
+    
+      <a class="me-3 py-2 text-decoration-none" href="/cv">CV</a>
+    
+      <a class="me-3 py-2 text-decoration-none" href="/contact">Contact</a>
+    
+  </nav>
+</header>
+      <h1 id="a-naive-generative-model">A Naive Generative Model</h1>
+
+<h5 id="112116">11/21/16</h5>
+
+<p>Rather than dive immediately into complex neural network architectures, I wanted to create a first model that predicts the absolute pitches of one voice given the absolute pitches in other voices. My goal was not to create the best possible predictive model of music so much as it was to create a control against future experiments that pre-process the training data further. If the dataset I had found could be modeled with high accuracy without significant pre-processing, then any more sophisticated model would be unnecessary and I would know to find a less homogeneous dataset before proceeding.</p>
+
+<h2 id="music-data">Music Data</h2>
+
+<p>But first, let’s talk about music datasets. My starting point was 382 chorales by J.S. Bach encoded as midi files (compiled by <a href="http://www-etud.iro.umontreal.ca/~boulanni/icml2012">Nicolas Boulanger-Lewandowski</a>). I like working with Bach in machine learning for a number of reasons. First, Bach’s music was extremely regular – he adhered to an absurd number of restrictions while writing that stayed relatively consistent throughout his life, so his music makes for fairly homogeneous datasets. Second, Bach was incredibly prolific – he wrote hundreds of cantatas, chorales and polyphonic works for keyboard instruments, which means we can assemble large datasets. Third, Bach’s style is very well known, but not many of his works are, so music that imitates Bach is more likely to fool the average listener than music imitating another composer.</p>
+
+<p>In the future, I’d also like to experiment on larger, more varied musical datasets, however most of the organized data in machine learning dataset collections online is either raw audio data or a link to a website that indexes many individual files. Despite this lack of easy data, I’m looking into two further midi datasets (which I’ll probably talk about in a future post), midi transcriptions of national anthems (which are similarly a well-known style, but not well-known individually) and midi transcriptions of string quartets by various composers (much less homogeneous, but still polyphonic and in four voices). More on that later.</p>
+
+<h2 id="encoding-schemes">Encoding Schemes</h2>
+
+<p>Music notation traditionally hasn’t been the easiest thing for computers to work with. Since <a href="http://www.mfiles.co.uk/music-notation-history.htm">score notation</a> dates back to Guido of Arezzo in the 11th century (who didn’t have machine encoding as a priority) and was designed to express contour of a melody to singers rather than encode specifically what a piece should sound like at a given time. Further, since musical events can happen continuously through time, it’s difficult to split music into discrete timesteps, which is necessary if we want to apply machine learning techniques.</p>
+
+<p><img src="/assets/images/onehot.png" alt="Pitch Encoding" width="400" height="448" /></p>
+
+<p>Midi solves some of these problems – midi events are either “note on” or “note off” signals and are encoded with their distance from the previous timestep in the channel, so we can easily figure out what notes are being played at any given point in time. Since recurrent neural nets have issues with long-term dependencies, so I don’t want to use the 480 timesteps per quarter note that is standard in midi when my shortest notes are much longer than (and divisible by) the length of a timestep. Instead, I make a single timestep in my encoding the GCD of my note lengths. Notes are then put in one-hot encoding timestep by timestep based on pitch with a total encoding size from the minimum midi note value to the maximum.</p>
+
+<h2 id="rnns-and-lstm-layers">RNNs and LSTM Layers</h2>
+
+<p>Rather than write yet another <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">blog</a> <a href="https://deeplearning4j.org/lstm">post</a> on the <a href="http://blog.terminal.com/demistifying-long-short-term-memory-lstm-recurrent-neural-networks/">internet</a> <a href="http://deeplearning.net/tutorial/lstm.html">explaining</a> how <a href="https://www.tensorflow.org/versions/r0.11/tutorials/recurrent/index.html">recurrent neural networks</a> and their common implementation, long short term memory (LSTM) layers, I’ll leave that to far better writers who understand the technical details better than I do.</p>
+
+<p>The conceptual takeaway as far as this project is concerned is that these neural network layers have internal state that allows the output for a timestep to depend on prior timesteps and for the rules for those dependencies (when to “remember”, when to “forget”) to be learned using backpropagation just like the weights of a feedforward network.</p>
+
+<p>The last remaining issue is that neural networks output continuous values while our music encoding is entirely discrete. As is common practice with nominal classification problems, we interpret the output of the network as a multinomial probability distribution. When generating, we sample from that distribution immediately to get the network’s prediction for the next timestep, then feed the result back into the network. When training, however, we don’t want to train the network on the wrong conditional probabilities (i.e. if we want it to predict a piece that starts with an ‘A’ followed by a ‘C’, and it guesses ‘F#’ for the first note, we shouldn’t train it to output ‘C’ after an ‘F#’), so we instead don’t sample and assume that, no matter what the probabilities were, that the network guessed correctly.</p>
+
+<h2 id="simple-generative-model">Simple Generative Model</h2>
+
+<p>Now that all of the background is out of the way, we can talk about this first model. As an input to the network, I feed a one-hot encoded vector of notes from all voices at the previous timestep, and all but one voice at the current timestep into a recurrent neural network with three LSTM hidden layers, take the output, put it through a softmax function, and train the network to output a prediction of the missing voice.</p>
+
+<p>Here are some pretty pictures of the training process:</p>
+
+<p><img src="/assets/images/simpleGenerative/batch0" alt="Batch 0" width="400" height="300" /></p>
+
+<p><img src="/assets/images/simpleGenerative/batch160" alt="Batch 160" width="400" height="300" /></p>
+
+<p><img src="/assets/images/simpleGenerative/batch300" alt="Batch 300" width="400" height="300" /></p>
+
+<p>Here, the Y-axis is pitch, the X-axis is time and the heatmap color at timestep n and pitch m is the probability that the network will output that pitch given the previous n-1 timesteps of the actual piece. These are pulled from validation runs, so there aren’t corresponding examples of generated music.</p>
+
+<p>As you can see, the model does try to fit, but ultimately fails. The network tends to just output high probabilities for more common pitches at every timestep rather than identify conditional relationships between timesteps. My guess to why is that absolute pitches that correlate together in one piece do not correlate together in another piece, mostly as a result of key relationships and tonality (eg. a C following an E in C major is likely and makes sense while a C following an E in D major is unlikely (at least in Bach chorales), since it is a flat leading tone). One of my goals is for the neural network to learn relationships between notes without any assumptions about a tonic or tonality in general, so the easy answer of transposing all of the pieces to the same key would remove that side of the learning.</p>
+
+<h2 id="what-comes-next">What Comes Next?</h2>
+
+<p>Well, I’m writing these posts retroactively, so I’m currently several steps ahead of my writing (I finished this model around the first week of October). In another post, coming out shortly, I’ll detail my forays into some other “expert” models that measure different attributes of the training data (voice spacing, voice contour and metric position), then talk about what happens when you multiply the outputs of those models together.</p>
+
+      <footer class="pt-5 my-5 text-muted border-top">
+  <div class="row">
+    <div class="col-md-6 text-end social-media-icons">
+      
+        <a href="https://github.com/samgoree" class="ms-3 fs-5" style="color: #000000;"><i class="fab fa-github"></i></a>
+      
+        <a href="https://twitter.com/sam__goree" class="ms-3 fs-5" style="color: #000000;"><i class="fab fa-twitter"></i></a>
+      
+        <a href="https://linkedin.com/in/samuel-goree-38214471" class="ms-3 fs-5" style="color: #000000;"><i class="fab fa-linkedin"></i></a>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-11 text-center">
+      Site design based on <a href="https://github.com/LeNPaul/academic">this template</a>.
+    </div>
+  </div>
+</footer>
+
+    </div>
+  </body>
+</html>

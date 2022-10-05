@@ -1,0 +1,4 @@
+featured:
+- {name: 'Attention is All They Need: Exploring the Media Archaeology of the Computer Vision Research Paper. Samuel Goree, Gabriel Appleby, David Crandall, Norman Su', url: '/publications/attention_arxiv_version.pdf'}
+- {name: '“It Was Really All About Books:” Speech-like Techno-Masculinity in the Rhetoric of Dot-Com Era Web Design Books. Samuel Goree, David Crandall, Norman Su', url: 'https://dl.acm.org/doi/abs/10.1145/3508067'}
+- {name: 'What Does it Take to Cross the Aesthetic Gap? The Development of Image Aesthetic Quality Assessment in Computer Vision', url: '/publications/ICCC_2021_paper_112.pdf'}
