@@ -2,7 +2,8 @@
 	<script async src="opencv.js" onload="console.log('OpenCV ready');" type="text/javascript"></script>
 	<script>
 		var video = null;
-		function createVideo() {
+		var facing = true;
+		function createVideo(facingMode) {
 			document.querySelector('#errorPrintout').innerHTML = 'Create Video';
 			video = document.createElement("video");
 			video.setAttribute("playsinline", "");
@@ -10,12 +11,10 @@
 			video.setAttribute("muted", "");
 			video.style.width = "200px";
 			video.style.height = "200px";
-
-			const facingMode = "user";
 			const constraints = {
 			  audio: false,
 			  video: {
-			    facingMode
+			    facingMode: facingMode
 			  }
 			};
 			navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
@@ -28,35 +27,41 @@
 		}
 
 		function photo() {
-			var count = 0;
-			var bestScore = 0;
-			const interval = setInterval( () => {
-				document.querySelector('#canvas').getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-				let src = cv.imread(document.querySelector('#canvas'));
-				let output = new cv.Mat();
-				cv.cvtColor(src, src, cv.COLOR_RGB2GRAY);
-				cv.Laplacian(src, output, -1);
-				let score = cv.mean(output)[0]
-				if(score > bestScore){
-					cv.imshow("canvas2", src);
-					bestScore = score;
-					document.querySelector('#errorPrintout').textContent = "Mean Laplacian: " + (score).toString();
+			if(document.querySelector('#blur').checked){
+				var count = 0;
+				var bestScore = 0;
+				const interval = setInterval( () => {
+					document.querySelector('#canvas').getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+					let src = cv.imread(document.querySelector('#canvas'));
+					let output = new cv.Mat();
+					cv.cvtColor(src, output, cv.COLOR_RGB2GRAY);
+					cv.Laplacian(output, output, -1);
+					let score = cv.mean(output)[0]
+					if(score > bestScore){
+						cv.imshow("canvas2", src);
+						bestScore = score;
+						document.querySelector('#errorPrintout').textContent = "Mean Laplacian: " + (score).toString();
 
-				}
-				count += 1;
-				if(count > 100){
-					clearInterval(interval);
-				}
-			}, 100);
+					}
+					count += 1;
+					if(count > 30){
+						clearInterval(interval);
+					}
+				}, 100);
+			} else {
+				document.querySelector('#canvas2').getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+			}
 		}
 	</script>
 </head>
 <body>
-	<button onclick="createVideo();">Click To Start Video</button>
+	<button onclick="if(facing){createVideo('user');}else{createVideo('environment');}">Click To Start Video</button>
 	<button onclick="photo();">Click to Take Photo</button>
+	<p>Use Blur Fliter<input id="blur" type="checkbox"></p>
+	</label>
 	<div>
 		<canvas id="canvas" hidden width="320" height="240"></canvas>
 		<canvas id="canvas2" width="320" height="240"></canvas>
 	</div>
-	<p id="errorPrintout">Text</p>
+	<p id="errorPrintout">-</p>
 </body>
