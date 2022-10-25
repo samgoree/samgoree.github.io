@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: How Should We Handle Subjective Problems in Computer Vision?
 excerpt: Over the past two years, I've been exploring a category of subjective computer vision problems and how we should approach them. In this post, I'd like to make the case for a more humanistic approach to these problems.
 ---
