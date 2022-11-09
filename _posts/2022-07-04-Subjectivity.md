@@ -12,12 +12,12 @@ This accidentally ended up being a really long post. I'm going to leave it long 
 
 <table>
 	<tr>
-		<td colspan="2">
+		<td>
 			<div style="overflow: hidden">
 				<img src="{{site.baseurl}}/assets/images/subjectivity/hamburger.png" alt="a good photo of a hamburger" style="max-height: 100%">
 			</div>
 		</td>
-		<td colspan="2">
+		<td>
 			<div style="overflow: hidden">
 				<img src="{{site.baseurl}}/assets/images/subjectivity/salad.png" alt="a bad photo of a salad" style="max-height: 100%">
 			</div>
@@ -27,73 +27,73 @@ This accidentally ended up being a really long post. I'm going to leave it long 
 Which do you think is more healthy?
 
 <table style="table-layout:fixed; width:100%">
-	<th>A</th><th>B</th><th></th>
+	<th>A</th><th>B</th>
 	<tr>
-		<td colspan="2">"Hey B, how's it going?"</td>
+		<td>"Hey B, how's it going?"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"I'm good, A, how are you?"</td>
+		<td/><td >"I'm good, A, how are you?"</td>
 	</tr><tr>
-		<td colspan="2">"Doing alright. I've got a computer vision problem for you!"</td>
+		<td>"Doing alright. I've got a computer vision problem for you!"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Ooh, ok, let's hear it."</td>
+		<td/><td >"Ooh, ok, let's hear it."</td>
 	</tr><tr>
-		<td colspan="2">Ok so we want to make an app where people take photos of their food, and the app tells them statistics about the healthiness of their eating over time."</td>
+		<td>Ok so we want to make an app where people take photos of their food, and the app tells them statistics about the healthiness of their eating over time."</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Interesting, how do you hope to do that?"</td>
+		<td/><td >"Interesting, how do you hope to do that?"</td>
 	</tr><tr>
-		<td colspan="2">"Well, we'd like to use AI to measure how healthy the food is."</td>
+		<td>"Well, we'd like to use AI to measure how healthy the food is."</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Hmmm, how do you define healthy?"</td>
+		<td/><td >"Hmmm, how do you define healthy?"</td>
 	</tr><tr>
-		<td colspan="2">"Oh you know, the usual way, foods with lots of nutrients are healthy, while foods that have lots of calories without many nutrients are unhealthy."</td>
+		<td>"Oh you know, the usual way, foods with lots of nutrients are healthy, while foods that have lots of calories without many nutrients are unhealthy."</td>
 	</tr><tr>
-		<td/><td colspan="2" >"And how is an algorithm supposed to figure that out?"</td>
+		<td/><td >"And how is an algorithm supposed to figure that out?"</td>
 	</tr><tr>
-		<td colspan="2">"Well, we'll just get it to identify the ingredients and cooking method used to produce a dish, then compute things like calories and nutrients from there."</td>
+		<td>"Well, we'll just get it to identify the ingredients and cooking method used to produce a dish, then compute things like calories and nutrients from there."</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Cool, do you have any food images labeled with their ingredients?"</td>
+		<td/><td >"Cool, do you have any food images labeled with their ingredients?"</td>
 	</tr><tr>
-		<td colspan="2">"No...we don't. That's hard to get, since there are so many possible ingredients, and not all the ingredients might be visible in the picture."</td>
+		<td>"No...we don't. That's hard to get, since there are so many possible ingredients, and not all the ingredients might be visible in the picture."</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Then how do you expect an algorithm to figure it out?"</td>
+		<td/><td >"Then how do you expect an algorithm to figure it out?"</td>
 	</tr><tr>
-		<td colspan="2">"That's a good point. I guess we'll get human labelers to rate images on a scale from 1 to 10 where 1 is unhealthy and 10 is healthy, then train a machine learning model to measure it. Do you know how to do that?"</td>
+		<td>"That's a good point. I guess we'll get human labelers to rate images on a scale from 1 to 10 where 1 is unhealthy and 10 is healthy, then train a machine learning model to measure it. Do you know how to do that?"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"...well technically I do, but I'm not sure that'll work particularly well."</td>
+		<td/><td >"...well technically I do, but I'm not sure that'll work particularly well."</td>
 	</tr><tr>
-		<td colspan="2">"Why not?"</td>
+		<td>"Why not?"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Our perception of how healthy food is might depend on other factors, like how the food is plated and how the photo is taken. A really beautiful photo of a hamburger with bright, crisp vegetables will look much more healthy than a poorly lit photo of a salad."</td>
+		<td/><td >"Our perception of how healthy food is might depend on other factors, like how the food is plated and how the photo is taken. A really beautiful photo of a hamburger with bright, crisp vegetables will look much more healthy than a poorly lit photo of a salad."</td>
 	</tr><tr>
-		<td colspan="2">"So we'll do another study where we issue people specific plates and cameras and make sure they take all the photos exactly the same."</td>
+		<td>"So we'll do another study where we issue people specific plates and cameras and make sure they take all the photos exactly the same."</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Still, ‘healthiness' isn't objective. Different people might define "healthy" differently based on their dietary needs. Most people would consider whole wheat bread relatively healthy, but a person with Celiac disease definitely wouldn't. And their definitions might change over time, like if they go on a diet and suddenly consider all bread unhealthy."</td>
+		<td/><td >"Still, ‘healthiness' isn't objective. Different people might define "healthy" differently based on their dietary needs. Most people would consider whole wheat bread relatively healthy, but a person with Celiac disease definitely wouldn't. And their definitions might change over time, like if they go on a diet and suddenly consider all bread unhealthy."</td>
 	</tr><tr>
-		<td colspan="2">"Ok, well, there might be some noise in the labeling process, so we'll ask lots of people to rate each image and take the average. That should be more objective, right?"</td>
+		<td>"Ok, well, there might be some noise in the labeling process, so we'll ask lots of people to rate each image and take the average. That should be more objective, right?"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Well, that will be more objective, but then you're measuring more of a social phenomenon, the way we collectively construct the category of 'healthy food' and less anything about how a person sees the food. It still will evolve over time as healthy eating trends go in and out of style, and our dietary priorities shift."</td>
+		<td/><td >"Well, that will be more objective, but then you're measuring more of a social phenomenon, the way we collectively construct the category of 'healthy food' and less anything about how a person sees the food. It still will evolve over time as healthy eating trends go in and out of style, and our dietary priorities shift."</td>
 	</tr><tr>
-		<td colspan="2">"Well, that doesn't really matter, does it? We just want to help people eat healthier, after all! So what should we do?"</td>
+		<td>"Well, that doesn't really matter, does it? We just want to help people eat healthier, after all! So what should we do?"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"People's food choices, like many of their other choices, are the result of a variety of systemic factors: what food is available, what we've eaten before, what our families expect us to cook, things like that. Just telling people how healthy their eating is probably won't make a big difference overall."</td>
+		<td/><td >"People's food choices, like many of their other choices, are the result of a variety of systemic factors: what food is available, what we've eaten before, what our families expect us to cook, things like that. Just telling people how healthy their eating is probably won't make a big difference overall."</td>
 	</tr><tr>
-		<td colspan="2">"But people are still responsible for their choices, right? And giving them good information will help them to make better-informed choices!"</td>
+		<td>"But people are still responsible for their choices, right? And giving them good information will help them to make better-informed choices!"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"That's true, maybe I'm being too harsh. But regardless, starting from images is going to be tricky and subjective. We can't just claim that our algorithm, trained on an average of several peoples' opinions, is the authority on healthy eating."</td>
+		<td/><td >"That's true, maybe I'm being too harsh. But regardless, starting from images is going to be tricky and subjective. We can't just claim that our algorithm, trained on an average of several peoples' opinions, is the authority on healthy eating."</td>
 	</tr><tr>
-		<td colspan="2">"Ok ok, hear me out: subjectivity doesn't have to be a bad thing. What if instead of an algorithm, we have a "bot" with a name, a backstory and a perspective of its own? Can we just say the bot has its own sense of what foods are healthy and avoid claiming to be an authority?"</td>
+		<td>"Ok ok, hear me out: subjectivity doesn't have to be a bad thing. What if instead of an algorithm, we have a "bot" with a name, a backstory and a perspective of its own? Can we just say the bot has its own sense of what foods are healthy and avoid claiming to be an authority?"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Hmm, that's more complicated. Are we trying to say our algorithmic measure of healthiness has a cultural background? Which culture would we choose? And how can a bot, which notably doesn't eat, have thoughts about food?"</td>
+		<td/><td >"Hmm, that's more complicated. Are we trying to say our algorithmic measure of healthiness has a cultural background? Which culture would we choose? And how can a bot, which notably doesn't eat, have thoughts about food?"</td>
 	</tr><tr>
-		<td colspan="2">"Oh well I don't know. We definitely can't try to imitate a particular cultural background, we might offend someone. What if we just learn the user's definition of healthy?"</td>
+		<td>"Oh well I don't know. We definitely can't try to imitate a particular cultural background, we might offend someone. What if we just learn the user's definition of healthy?"</td>
 	</tr><tr>
-		<td/><td colspan="2" >"But then they'll just consider whatever they're eating already as healthy to make themselves feel better! Didn't you originally want to help people change their eating habits?"</td>
+		<td/><td >"But then they'll just consider whatever they're eating already as healthy to make themselves feel better! Didn't you originally want to help people change their eating habits?"</td>
 	</tr><tr>
-		<td colspan="2">"That's true, we do want to help people to eat healthier. Hold on, now what if we train it on an expert's definition of healthy? Surely an expert will be a better judge."</td>
+		<td>"That's true, we do want to help people to eat healthier. Hold on, now what if we train it on an expert's definition of healthy? Surely an expert will be a better judge."</td>
 	</tr><tr>
-		<td/><td colspan="2" >"Now we're getting somewhere, but it's still messy. An expert probably has a more reliable definition of healthy than a random user, but they're still only human. They'll rate the foods they like more highly, and will be more skeptical of unfamiliar foods without realizing it. We don't want to equate having more education with having more objective opinions, especially when the problem isn't purely scientific."</td>
+		<td/><td >"Now we're getting somewhere, but it's still messy. An expert probably has a more reliable definition of healthy than a random user, but they're still only human. They'll rate the foods they like more highly, and will be more skeptical of unfamiliar foods without realizing it. We don't want to equate having more education with having more objective opinions, especially when the problem isn't purely scientific."</td>
 	</tr><tr>
-		<td colspan="2">"Drat, the interaction between the subjective parts of perception and machine learning is really complicated, isn't it? Somebody should study this!"</td>
+		<td>"Drat, the interaction between the subjective parts of perception and machine learning is really complicated, isn't it? Somebody should study this!"</td>
 	</tr>
 </table>
 <br>
@@ -130,8 +130,8 @@ But there are some concepts, especially visual concepts, which don't operational
 
 <table>
 	<tr>
-		<td colspan="2"><img src="{{site.baseurl}}/assets/images/subjectivity/bing.png" alt="Bing logo from 2016" ></td>
-		<td colspan="2"><img src="{{site.baseurl}}/assets/images/subjectivity/primo.png" alt="Primo logo from 2016" ></td>
+		<td><img src="{{site.baseurl}}/assets/images/subjectivity/bing.png" alt="Bing logo from 2016" ></td>
+		<td><img src="{{site.baseurl}}/assets/images/subjectivity/primo.png" alt="Primo logo from 2016" ></td>
 	</tr>
 </table>
 
@@ -139,8 +139,8 @@ The logo on the left was briefly used by Microsoft Bing in 2016. The logo on the
 
 <table>
 	<tr>
-		<td colspan="2"><img src="{{site.baseurl}}/assets/images/subjectivity/madonna.png" alt="Giovanni Battista's Madonna and Child" ></td>
-		<td colspan="2"><img src="{{site.baseurl}}/assets/images/subjectivity/mother.png" alt="George Stefanescu's Mother and Child" ></td>
+		<td><img src="{{site.baseurl}}/assets/images/subjectivity/madonna.png" alt="Giovanni Battista's Madonna and Child" ></td>
+		<td><img src="{{site.baseurl}}/assets/images/subjectivity/mother.png" alt="George Stefanescu's Mother and Child" ></td>
 	</tr>
 </table>
 
