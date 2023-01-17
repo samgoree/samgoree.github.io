@@ -1,8 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    academic-jekyll-theme (1.0.0)
-      jekyll (~> 4.2)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     colorator (1.1.0)
@@ -58,13 +56,15 @@ GEM
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     unicode-display_width (1.8.0)
+    webrick (1.7.0)
 
 PLATFORMS
+  aarch64-linux
   x86_64-linux
 
 DEPENDENCIES
-  academic-jekyll-theme
   jekyll
+  webrick (~> 1.7)
 
 BUNDLED WITH
    2.3.22
