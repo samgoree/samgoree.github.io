@@ -39,7 +39,7 @@ By the turn of the 20th century, the rise of industrial-scale manufacturing and 
 
 ### The International Commission on Illumimation (CIE)
 
-Against that backdrop, we get the origins of colorimetry in first meetings of the International Commission on Illumination (CIE, based on the French) starting in 1913. The organizers saw it as the extension of the existing committee on photometry, which had successfully adopted a standard unit for brightness, the candela. They believed a similar set of units could be developed for color as well. 
+Against that backdrop, we get the origins of colorimetry in first meetings of the International Commission on Illumination (CIE, based on the French "commission internationale de l'éclairage") starting in 1913. The organizers saw it as the extension of the existing committee on photometry, which had successfully adopted a standard unit for luminous intensity. They believed a similar set of units could be developed for color as well. 
 
 But there were strict national divides: the British and American scientists, following in the legacy of Maxwell and Newton, believed that a physics-based approach, only using three channels, with a "standard observer" model to substitute for human judgment, was best. However, the French and German scientists, following in the legacy of Goethe and Hering, took a more psychological approach. They wanted to model the human aspect, and take contextual factors like time dependence (think the color of glitter or flashing lights) and light/dark adaptation in human vision into account. So the CIE was at a stalemate.
 
