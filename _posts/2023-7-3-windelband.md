@@ -19,7 +19,7 @@ Psychologists, starting in the early 20th century, started to use these words to
 
 These two terms, interestingly, were not proposed in a book or article, but in a speech: Windelband’s [rectorial address](https://journals.sagepub.com/doi/abs/10.1177/0959354398081001) at Kaiser-Wilhelm University of Strasberg in 1894, translated by James Lamiell, who wrote an [interesting paper](https://journals.sagepub.com/doi/abs/10.1177/0959354398081002?journalCode=tapa) about Windelband in 1998. Back in that day, I guess university administrators talked about German idealism in commencement speeches.
 
-<img src="{{site.baseurl}}/assets/images/windelband.jpg" alt="Wilhelm Windelband" style="width: 75%; height: 75%"/>
+<img src="{{site.baseurl}}/assets/images/windelband.jpg" alt="Wilhelm Windelband" style="width: 50%; height: 50%"/>
 
 Anyway, Windelband starts his speech by talking about the differences between the disciplines, in order to ask: should psychology be part of the humanities or the natural sciences? He observes that the questions psychologists are asking have historically been located within the humanities. But the methods that psychologists use look much more like the sciences. Today, we mostly consider psychology a social science (though it has more biological and humanistic branches as well), but Windelband was writing before the term "social science" existed.
 
