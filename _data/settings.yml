@@ -7,9 +7,7 @@ menu:
 - {name: 'Contact', url: '/contact'}
 
 people:
-- {name: 'Sam Goree', title: 'Graduate Research Fellow', department: 'Informatics', institution: 'Indiana University'}
-#- {name: 'Lab Technician', title: 'Researcher', department: 'Physics & Astronomy', institution: 'Some University', institution_address: '1 Main Street, Canada', phone: '(000) 000-0000', email: 'hello@university.edu', office: 'Science Building 505', image: 'assets/img/lab-technician.jpg', url: 'lab-technician'}
-#- {name: 'Graduate Student', title: 'Researcher', department: 'Physics & Astronomy', institution: 'Some University', institution_address: '1 Main Street, Canada', phone: '(000) 000-0000', email: 'hello@university.edu', office: 'Science Building 505', image: 'assets/img/graduate-student.jpg', url: 'graduate-student'}
+- {name: 'Sam Goree', title: 'Assistant Professor', department: 'Computer Science', institution: 'Stonehill College'}
 
 #courses:
 #- {name: 'Vector Calculus', url: 'vector-calculus'}
@@ -19,7 +17,8 @@ people:
 social:
 - {icon: 'github', link: 'https://github.com/samgoree'}
 - {icon: 'twitter', link: 'https://twitter.com/sam__goree'}
+- {icon: 'mastodon', link: 'https://https://hci.social/@samgoree'}
 - {icon: 'linkedin', link: 'https://linkedin.com/in/samuel-goree-38214471'}
 
 contacts:
-- {name: 'Sam Goree', title: 'Graduate Research Fellow', department: 'Department of Informatics, Luddy School of Informatics, Computing and Engineering', institution: 'Indiana University', email: 'sgoree [at] iu.edu'}
+- {name: 'Sam Goree', title: 'Assistant Professor', department: 'Department of Computer Science', institution: 'Stonehill College', email: 'sgoree [at] stonehill.edu'}
