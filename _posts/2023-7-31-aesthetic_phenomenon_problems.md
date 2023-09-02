@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Aesthetic Phenomenon Problems
+title: Aesthetic Phenomenon Problems (dissertation post)
 excerpt: I defended my dissertation! In this post, I’m going to describe its key unifying question, how do we evaluate algorithms for aesthetic phenomenon problems in computer vision?
 ---
 
