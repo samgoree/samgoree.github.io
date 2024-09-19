@@ -1,0 +1,47 @@
+---
+layout: post
+title: Teaching Computer Science After ChatGPT 
+excerpt: 
+---
+
+# Teaching Computer Science After ChatGPT
+
+It’s now been two whole years since OpenAI launched their free chatbot demo, ChatGPT. As an open-ended text interface to a large language model, ChatGPT really seems like an "anything" app, after [50 years of missed deadlines](https://aiws.net/the-history-of-ai/this-week-in-the-history-of-ai-at-aiws-net-marvin-minsky-was-quoted-in-life-magazine-in-from-three-to-eight-years-we-will-have-a-machine-with-the-general-intelligence-of-an-average-human-b/), AI seems to be here.
+
+<img src="{{site.baseurl}}/assets/images/chatgpt.png" alt="ChatGPT's user interface. An 'anything' app." style="width: 80%;"/>
+
+In that time, OpenAI has burned through billions of dollars of investor money, emitted literal tons of carbon dioxide and gotten figurative tons of people hooked on free generative AI. At the same time, studies have shown that ChatGPT is [literally BS](https://link.springer.com/article/10.1007/s10676-024-09775-5), has [a variety of social biases](https://www.mdpi.com/2076-0760/12/8/435) and carries [many security and privacy concerns](https://www.sciencedirect.com/science/article/pii/S2949715923000707). While the jury is still out on how useful chatbots can be for solving real-world problems (it seems pretty useful, but the research is still unclear), [it is extremely good at doing homework](https://www.nytimes.com/2023/02/02/learning/students-chatgpt.html) and has [allegedly killed the college essay](https://www.theatlantic.com/technology/archive/2022/12/chatgpt-ai-writing-college-student-essays/672371/).
+
+### What's the problem?
+
+Students around the world are using ChatGPT regularly to write for them. The text generator has ingested billions of words of training data from the internet and trillions of user interactions on their website and learned how to exactly mimic the most neutral, universally acceptable English writing style. In my experience, everyone from primary school students to professors is using ChatGPT to write, especially to revise their writing to make them sound more like a white American academic. That might be a bad thing for writing in general, but I’m a computer science professor, so I’m not really qualified to speak on that front.
+
+My main concern is programming. ChatGPT can program about as well as a second or third year computer science student. Sure, it can’t do everything a professional programmer could do, but if you’re a first year computer science student unable to figure out your homework, it’s a godsend. Instead of spending hours struggling to figure out a bug, you can just put the text of your assignment into ChatGPT and it’ll print out the full solution! No struggle required.
+
+The only problem is, eventually ChatGPT stops being able to keep up. Upper-level courses in computer science go beyond the basic topics which are well-represented on the web. Often we will assign students long-term projects that require significant amounts of software engineering work. ChatGPT will still seem like it can answer these questions, but its solutions will be wrong. Sometimes each generated code snippet will be right, but the resulting software won't work when all the snippets are combined. You can only imagine the look of panic in a student’s face when they realize AI can’t save them and two years of avoiding the struggle of programming catches up with them.
+
+Despite the schadenfreude, this situation is clearly not good for teachers or students. As professors, we design our assignments to produce a certain kind of struggle so that students can build their critical thinking and problem solving skills a little at a time over several years. While students generally don’t want to do the day-to-day work, they do ultimately want to learn these skills. So what should we do?
+
+### "Just use AI"
+
+A common response I have heard is "if the students want to use AI, why not just have AI teach them?" This is [an area of active research](https://www.jonedu.org/index.php/joe/article/view/2745), but the early findings seem to suggest (as any instructor could have guessed) that teaching can't really be done over a text Q&A interface. Undergraduate teaching is more than delivering content and answering questions. It's about creating the environment for students to grow together. If anything, the content is a pretense to create a specific kind of shared struggle. If students remember the specific content, that's an added bonus.
+
+Another common response is "AI has made programming obsolete! Don’t teach them to code, teach them how to use AI!" This is also [an area of active research](https://dl.acm.org/doi/abs/10.1145/3626252.3630909). It seems like generative AI definitely helps students feel more confident about their programming abilities, but (at time of writing) I have not seen a study showing that ChatGPT actually helps students to learn computer science for themselves. I’m generally in favor of teaching students how to use these tools effectively, because in general, students need to get better at writing about code. But I am reluctant to teach specifically about ChatGPT because the tricks that work well in ChatGPT prompts may become obsolete very quickly. I’m also generally uncomfortable teaching using non-open source software, and ChatGPT is very much not open source and could become paywalled at any time.
+
+### My Strategies
+
+So what do we do? Ignoring ChatGPT isn’t an option, as our students are using it. Litigating it like plagiarism also won’t work, as it is impossible to determine with certainty whether ChatGPT was used for a given text. We have to redesign our classes to account for it. While I haven't collected actual data yet, here are some strategies I have used that have worked for me over the past year:
+
+##### 1. Write assignments that ChatGPT cannot solve
+This option is easier said than done, as most problems that are too difficult for ChatGPT are too difficult for our students. That said, we can make our homework more context-sensitive. For example, even if ChatGPT can write the code to analyze a large dataset, it can’t interpret the results. And if a student is already doing the work to interpret what’s happening in the data, they’re learning. It doesn’t matter if they’re writing the code alone at a keyboard, using Google and StackOverflow or using ChatGPT. I’ve also had a lot of success having students fill in gaps in large starter codebases. This is good training for the real world, and even if they’re using ChatGPT for the details, they still have to know what to ask.
+
+##### 2. Lower the stakes and make time
+Students turn to chatbots in the first place because they are stressed. College is expensive, many students work a job in addition to taking classes, and they often don’t have time to sit and think like the students of the past. Typically, if there is a problem they can’t solve, a deadline looming, and a thousand other things they’d rather be doing, they turn to ChatGPT. But they’d much rather just not do the assignment. I’ve had success giving assignments lower stakes and giving students class time to do them. Since there’s literally nothing else grabbing their attention in class, they’re more able to do practice problems and when the stakes are lower, they’re less stressed. This doesn’t work for every kind of assignment (we only have so much class time), but for boring practice problems that ChatGPT is best for, it works pretty well.
+
+##### 3. Abandon plaintext
+ChatGPT is very good at writing textual answers to textual questions, but it can’t draw pictures, talk to others or click a visual interface. I’ve had a lot of success starting intro programming students using block programming so that even if they use ChatGPT, they still have to translate its response into a structure of blocks. Even if they aren’t doing all the problem solving work, they’re still programming and getting the muscle memory for different structures. Similarly, giving assignments which involve visual or hands-on questions or answers require students to think before or after they use a chatbot.
+
+##### 4. Give fun assignments
+Students only turn to ChatGPT if they don’t want to or don’t have time to do something without it. But if the assignment is something they want to do, that feels fun and interesting to them, they’ll take the time to do it. I’ve had good success with gamified assignments and open-ended creative tasks. For example, when teaching data visualization I have students design, prototype and benchmark their own colorblind-friendly colormaps. The students love doing that, it makes them feel like real scientists. Of course, only giving fun, meaningful assignments isn’t possible in every class (students have to eat their vegetables sometimes), but when you can it’s just good teaching.
+
+As far as I’m concerned, the only failure mode for teaching after ChatGPT is a world in which assignments written using a chatbot are completed using a chatbot and graded using a chatbot to feed the student assessment demons. By that point, all is lost. But if students are using generative AI tools while still having to think critically, I don't see a problem. School may start looking different, but the kids will be alright.
