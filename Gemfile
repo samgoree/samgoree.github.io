@@ -2,10 +2,10 @@
 
 source "https://rubygems.org"
 
-ruby "2.7.8"
+ruby "3.1.3"
 
 # gem "rails"
-gem "jekyll", "~> 3.7.3"
+gem "jekyll", "~> 4.3.3"
 
 gem "webrick", "~> 1.7"
 
