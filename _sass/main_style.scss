@@ -1,0 +1,15 @@
+$backgroundColor: #FFF7F2;
+$bodyColor: #000000;
+$bodyFont: "Noto Serif",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$linkColor: #038e7e;
+
+body {
+  background: $backgroundColor;
+  color: $bodyColor;
+  font-family: $bodyFont;
+}
+
+body a {
+  color: $linkColor
+}
+
