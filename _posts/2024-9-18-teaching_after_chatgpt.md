@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Teaching Computer Science After ChatGPT 
-excerpt: 
+excerpt: ChatGPT can program about as well as a second or third year computer science student, which makes it a godsend for first year computer science students. But eventually ChatGPT stops being able to keep up and students find themselves unable to code. So what do we do? Ignoring ChatGPT isn’t an option, as our students are using it. Litigating it like plagiarism also won’t work, as it is impossible to determine with certainty whether ChatGPT was used for a given text. We have to redesign our classes to account for it.
 ---
 
 # Teaching Computer Science After ChatGPT
