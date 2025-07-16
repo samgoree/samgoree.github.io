@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 layout: post
 title: Why Does AI Art Look Like That?
@@ -125,3 +126,4 @@ The biggest thing shaping the style of AI-generated images, however, is the way 
 Steering the generative process using text severely limits the way that generated images can look. Only images which “look like” the text prompt are able to come out of this process. That makes it extremely difficult to specify things like style or composition, and severely limits the usefulness of image generators for serious art-making.
 
 If I had the power to set a priority for human-AI interaction research, it would be to develop a way to describing the style and tone of images, separate from the thing depicted in the image. Currently, the only ways to do this are through references to existing artists' styles, either by using their name in the prompt, using "style transfer" methods or referencing arcane aesthetic subcultures. Ultimately, though, there is no free lunch. Generating AI images which don't look "like that" requires you as the artist to know what you want the image to look like and have the skill and language to express it, and requires the model to have the capacity to generate it.
+
