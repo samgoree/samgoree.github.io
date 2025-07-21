@@ -7,6 +7,7 @@ excerpt: "In this post, I'd like to answer two questions: What, exactly, do AI g
 # Why Does AI Art Look Like That?
 
 <img src="{{site.baseurl}}/assets/images/AI_art/midjourney.png" alt="A grid of midjourney-generated images with a distinctive visual style." style="width: 50%;"/> <img src="{{site.baseurl}}/assets/images/AI_art/sd.png" alt="A grid of stablediffusion-generated images with a distinctive visual style." style="width: 50%;"/>
+
 By "that" I mean images like these: from Midjourney (left) and StableDiffusion (right).
 
 In this post, I'd like to answer two questions:
@@ -51,11 +52,13 @@ If we only pay attention to the content, we find a variety of issues. First of a
 The background resembles the multicolored and multileveled plateaus and mesas of the American southwest, particularly of Utah's Grand Staircase-Escalante National Monument.
 
 <img src="{{site.baseurl}}/assets/images/AI_art/utah.jpg" alt="A photo of badlands and mesas in southern Utah." style="width: 100%;"/>
+
 ([Wesley Matthews, via Flickr](https://www.flickr.com/photos/131545241@N03/52773264761))
 
 The problem is that there are no Armadillos in Utah. Their North American range is mostly in states that border the Gulf of Mexico, and they are found much more commonly throughout centeral and South America, mostly in the rainforest.
 
 <img src="{{site.baseurl}}/assets/images/AI_art/armadillo_range.jpg" alt="A map showing the range of the Armadillo family, mostly in South and Central America." style="width: 100%;"/>
+
 (Wikipedia)
 
 This isn't a huge deal. There are plenty of deserts in Northern Mexico and Texas. And most people who would look at this photo wouldn't notice the inconsistency. But the mismatch contributes to a sense that the image is “too perfect” or “uncannily wrong.” You've probably seen plenty of artistic depictions of Armadillos in the desert, but not many of them in Central American jungles.
@@ -69,6 +72,7 @@ AI images also have to show something. Thanks to a recent conference talk by [Yi
 What does a non-depictive image look like? Consider this drip painting by Jackson Pollock. 
 
 <img src="{{site.baseurl}}/assets/images/AI_art/pollock.jpg" alt="A drip painting by Jackson Pollock, Number 32 (1947)." style="width: 100%;"/>
+
 Jackson Pollock, Number 32 (1947)
 
 At least for me, when I look at it, I imagine Pollock looming over the canvas and think about the physical process he was engaged in, and try to imagine what he was seeing and feeling. I also think about the times I've seen artists' studios and looked at the floors and walls, often similarly splattered with paint. And that makes me wonder about why certain things are art and others are trash, and how intentional that boundary really is. The painting gets me to think those thoughts, but not by communicating them to me through symbols.
@@ -76,6 +80,7 @@ At least for me, when I look at it, I imagine Pollock looming over the canvas an
 Today's AI image generators based on text prompts are not capable of generating abstract representations like Pollock's drip paintings. If you prompt them to depict a specific emotion or sense of chaos, they will depict something emotional or chaotic, instead of trying to evoke that emotion more directly. While asking for an image in Pollock's style generates something that looks similar, the result is incoherent and does not evoke a physical process in the same way.
 
 <img src="{{site.baseurl}}/assets/images/AI_art/chaos.jpg" alt="DALL-E 3 image for the prompt 'a chaotic world', a swirl of people and things." style="width: 100%;"/>
+
 DALL-E 3 generated image for the prompt "a chaotic world" from [this aggregator](https://easy-peasy.ai/ai-image-generator/images/chaotic-world-unseen-turmoil).
 
 <img src="{{site.baseurl}}/assets/images/AI_art/ai_pollock.webp" alt="StableDiffusion image with drips on a canvas that make no logical sense." style="width: 100%;"/>
@@ -85,6 +90,7 @@ StableDiffusion image for the prompt "jackson pollock drip painting depicting 'h
 Also, funnily enough, they cannot disambiguate homonyms, or words with two meanings. For example, if you prompt Midjourney for “crane” it will generate images with both construction cranes as well as bird cranes.
 
 <img src="{{site.baseurl}}/assets/images/AI_art/crane.jpg" alt="Midjourney image for the prompt 'crane' depicting both a machine crane as well as a bird." style="width: 100%;"/>
+
 (Midjourney, generated for the [GenImage dataset](https://genimage-dataset.github.io/) using the prompt "Crane")
 
 ### Do They Have to Look Like This?
@@ -96,6 +102,7 @@ There are many ways to generate images using statistical models. Most modern ima
 The fundamental idea behind diffusion models is that they are trained to take a noisy input image (in signal processing, we call the random pattern that looks like TV static "noise." Statistically it is just like white noise in sound!) and "de-noise" it producing a sharper version of the image. The training data is created by taking real images and adding noise to them:
 
 <img src="{{site.baseurl}}/assets/images/AI_art/cornelius.png" alt="A forward diffusion process on an image of my rabbit, Cornelius, becoming increasingly noisy with static from left to right." style="width: 100%;"/>
+
 From left to right, a forward diffusion process carried out on a photo of my rabbit, Cornelius. The diffusion model learns to reconstruct each image from the image to its right.
 
 After training, when you want to use these models to generate an image, you simply run them over and over starting with an image that is fully noise. Eventually, the generator will make sense out of the random patterns in the noise and create an image with no noise.
@@ -103,6 +110,7 @@ After training, when you want to use these models to generate an image, you simp
 At a high level, this method explains the sleek, too-perfect look. Any small imperfections in the textures of the image are treated as noise and removed by the diffusion model. We can measure this smoothness empirically by using the average spectrogram of the images.
 
 <img src="{{site.baseurl}}/assets/images/AI_art/spectrogram_imagenet.png" alt="A spectrogram heatmap showing the frequency distribution for ImageNet images. The middle is very bright with a diamond of light region around it, surrounded by darkness." style="width: 50%;"/> <img src="{{site.baseurl}}/assets/images/AI_art/spectrogram_midjourney.png" alt="A spectrogram heatmap showing the frequency distribution for Midjourney images. The middle is just as bright, but the diamond around it is much smaller and fainter, with a few distinctive bright spots." style="width: 50%;"/>
+
 Figures from [The GenImage paper](https://arxiv.org/pdf/2306.08571).
 
 You can interpret these plots as 2D graphs where the X and Y axes indicate horizontal and vertical frequency of a pattern, and the brightness indicates how much of that pattern is found in the image. The region near the middle contains low frequency information, like shapes, while the regions further away contain high frequency information, like texture. For more about how to interpret image Fourier transforms, I recommend [this website by John Brayer](https://www.cs.unm.edu/~brayer/vision/fourier.html).
@@ -112,6 +120,7 @@ Real images, like those in ImageNet, contain a lot of noise, and do not contain 
 There are other generative models which don't have this effect. For example, generative adversarial networks (GANs), which were the most common image generator from 2016-2022, generate very noisy images. However, their noise profiles are not natural, and have a distinctive ugly "funk" to them, in addition to much less logical content. For example: here are some GAN armadillos:
 
 <img src="{{site.baseurl}}/assets/images/AI_art/biggan_armadillo_1.png" alt="An uncanny, blurry image that kind of looks like an armadillo." style="width: 33%;"/> <img src="{{site.baseurl}}/assets/images/AI_art/biggan_armadillo_2.png" alt="An uncanny, blurry image that kind of looks like an armadillo." style="width: 33%;"/><img src="{{site.baseurl}}/assets/images/AI_art/biggan_armadillo_3.png" alt="An uncanny, blurry image that kind of looks like an armadillo." style="width: 33%;"/>
+
 BigGAN armadillos, also from [GenImage](https://genimage-dataset.github.io/).
 
 <img src="{{site.baseurl}}/assets/images/AI_art/spectrogram_biggan.png" alt="A spectrogram heatmap showing the frequency distribution for BigGAN images. The middle looks similar to Midjourney, but there are many bright spots at regular intervals around it." style="width: 50%;"/>
