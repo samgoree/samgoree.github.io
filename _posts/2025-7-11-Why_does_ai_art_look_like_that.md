@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 ---
 layout: post
 title: Why Does AI Art Look Like That?
-excerpt: 
+excerpt: "In this post, I'd like to answer two questions: What, exactly, do AI generated images look like? Do they have to look like that, or is it a creative choice someone has made?"
 ---
 
 # Why Does AI Art Look Like That?
