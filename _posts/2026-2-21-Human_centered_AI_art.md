@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Is There a Human-Centered Computational Aesthetics?
+title: Is There a Human-Centered AI Art?
 excerpt: I had the privilege in December 2025 of participating in the MosAIcs symposium at Washington University. It was a fun event, involving contemporary mosaic artists, neuroscientists and computer scientists interested in aesthetics. My talk framed some of my research in terms of a question, is there a human-centered computational aesthetics?
 ---
 
@@ -8,9 +8,11 @@ excerpt: I had the privilege in December 2025 of participating in the MosAIcs sy
 
 I had the privilege in December of participating in the MosAIcs symposium at Washington University. It was a fun event, involving contemporary mosaic artists, neuroscientists and computer scientists interested in aesthetics. My talk framed some of my research in terms of the question: **is there a human-centered computational aesthetics?**
 
+(I've given this post a more attention-grabbing title, If you're only interested in the AI art stuff, scroll down [here](#three-principles))
+
 By "computational aesthetics" I mean computational models that attempt to predict what images humans will like. In particular, I'm interested in "image aesthetic quality assessment" models which take an image as input and output a number. These models are fit to image-label pairs from a large dataset, such as the AVA dataset, and are used to curate images for large AI art datasets. For more about which humans, and what these models actually do, you can see some of [my previous work]({{site.baseurl}}/2022/12/02/correct_for_whom.html).
 
-By "human-centered" I mean something that is useable and intuitive to human users attempting to complete a task. In this post, I'd like to take this concept and connect it to related ongoing debates about AI art. If you're only interested in the AI art stuff, scroll down [here](#three-principles).
+By "human-centered" I mean something that is useable and intuitive to human users, particularly working artists, attempting to complete a task, in this case, free creative expression. In this post, I'd like to take this concept and connect it to related ongoing debates about AI art.
 
 ### What use does computational aesthetics have?
 
@@ -46,7 +48,7 @@ Our participants also tended to connect their evaluations to their prior experie
 
 My takeaway from this research is that aesthetic quality assessment models are only as usable as they are legible to users as models of aesthetic quality. I also argue that we should not be considering computational aesthetics separately from gender, culture, technology or power.
 
-### Ok so is there actually a human-centered computational aesthetics?
+### Ok so is there actually a human-centered AI art?
 
 Yes, there can be, but in order to create it, we need to start trying to build systems that are useful for people, rather than trying to build artificial people. 
 
@@ -82,5 +84,5 @@ One thing I've thought a lot about is whether the series of micro-decisions a pe
 
 ### Conclusion
 
-When I gave this talk, I got a positive response from the AI researchers, neuroscientists and artists involved. That said, it's obviously easier to say how image generators should work and much harder to actually build that kind of system.
+When I gave this talk, I got a positive response from the AI researchers, neuroscientists and artists involved. That said, it's obviously easier to say how image generators should work and much harder to actually build that kind of system. If you work at the kind of place that is interested in building such a system and want to talk about design, let me know!
 
