@@ -50,3 +50,9 @@ I made two other little changes:
 2. I added a "publications" section to my homepage, which auto-populates from a yaml file containing a list of publications.
 
 That's about it! The entire process (not including writing this post) took about 6 hours of work over two days, mostly fiddling with CSS details and fretting on whether or not to capitalize my headings. If you're looking for help setting up your own academic website, feel free to reach out!
+
+# How I Re-Redesigned My Academic Website
+
+Hello again! Now it's 2026. 
+
+I was surprisingly on-trend in 2022. So much so that a bunch of AI companies like [Anthropic](https://anthropic.com) and [Reflection](https://reflection.ai/) use that web design style now, and it seems like every AI-generated website is using a yellowish off-white background. I would rather not have a website that looks like [tasteslop](https://www.wired.com/story/ai-has-come-for-serif-fonts/), so I'm changing to a slightly more garish color combination and off-trend geometric sans-serif font that (I hope) reflects my real human taste.
