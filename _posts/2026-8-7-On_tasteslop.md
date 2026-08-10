@@ -1,3 +1,9 @@
+---
+layout: post
+title: On "Tasteslop" via Weizenbaum
+excerpt: Over the past few months, a lot of people in the AI industry have been buzzing about taste. Specifically, the argument is over two issues: Can LLMs and LLM-based agents make tasteful decisions? Can LLMs be used tastefully? I have a few thoughts.
+---
+
 # On "Tasteslop" via Weizenbaum
 
 Over the past few months, a [lot](https://nemesisglobal.substack.com/p/tasteslop) [of](https://www.nytimes.com/2026/03/22/style/ai-tools-taste.html) [people](https://x.com/WillManidis/status/2023866928608002183) [in](https://x.com/gdb/status/2023481258639286401) [the](https://x.com/mitchellh/status/2070665127331037290) [AI](https://x.com/paulg/status/2022604692178522562) [industry](https://x.com/emollick/status/2085034843805528268) have been buzzing about taste. Specifically, the argument is over two issues:
