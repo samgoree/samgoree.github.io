@@ -1,7 +1,7 @@
 ---
 layout: post
-title: On "Tasteslop" via Weizenbaum
-excerpt: Over the past few months, a lot of people in the AI industry have been buzzing about taste. Specifically, the argument is over two issues: Can LLMs and LLM-based agents make tasteful decisions? Can LLMs be used tastefully? I have a few thoughts.
+title: "On \"Tasteslop\" via Weizenbaum"
+excerpt: "Over the past few months, a lot of people in the AI industry have been buzzing about taste. Specifically, the argument is over two issues: Can LLMs and LLM-based agents make tasteful decisions? Can LLMs be used tastefully? I have a few thoughts."
 ---
 
 # On "Tasteslop" via Weizenbaum
