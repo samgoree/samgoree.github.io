@@ -61,7 +61,7 @@ In the programming realm, a similar thing seems to be happening. Many commercial
 
 All that is to say, right now, I think it is not possible to use AI tastefully, because the unethical consequences of AI use for workers lead to distasteful associations. I haven't even mentioned the [climate costs](https://news.un.org/en/story/2026/06/1167658), particularly for generating images, or the high volume of low-wage labor that was needed, often working with disturbing content, to produce training data. That doesn't mean there aren't technologies based on machine learning that could better serve human taste and creativity. But I think today's AI industry, with its huge capital expenditures justified by promising the automation of knowledge work, finds itself structurally opposed to the human judgment that knowledge work requires, and I think that makes the people involved in it uncomfortable. Maybe that's why they keep talking about taste.
 
-#### Minor Addendum
+#### Addendum
 
 A few days after writing this piece, I realized that it might be misread in a specific way, and wanted to clarify. While I mention software engineering, this is not an essay about use of AI-assisted tools while programming. If you, as a software engineer, are using AI as part of your process, and are able to generate well-organized and elegant code, I think that can be plenty tasteful, but it is tasteful because of the work you are putting in. But if your generated code looks anything like my students', you know how tasteful your AI use is.
 
